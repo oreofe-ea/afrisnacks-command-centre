@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AfriSnacks Digital Command Centre</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body{
+      background:linear-gradient(135deg,#031426,#0B2344);
+      color:white;
+      font-family:Inter,Segoe UI,sans-serif;
+    }
+    .screen{display:none;}
+    .screen.active{display:block;}
+    .card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(12px);
+      transition:.25s;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:#F58220;
+    }
+    .btn{
+      background:#F58220;
+      color:white;
+      padding:12px 18px;
+      border-radius:14px;
+      font-weight:700;
+    }
+    .badge{
+      background:#143B62;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:12px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+<div class="max-w-6xl mx-auto px-6 py-5">
+
+<header class="flex justify-between items-center border-b border-slate-700 pb-4">
+<div>
+<h1 class="text-2xl font-black tracking-[.25em]">AFRISNACKS</h1>
+<p class="text-slate-400 text-sm">DIGITAL COMMAND CENTRE</p>
+</div>
+
+<div class="badge">
+PROTOTYPE • AFRICA OPERATIONS
+</div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="screen active mt-10">
+
+<p class="uppercase tracking-[.3em] text-orange-400 text-xs font-bold">
+One Connected Financial Ecosystem
+</p>
+
+<h2 class="text-5xl font-black mt-3 leading-tight">
+Run Africa from one Command Centre.
+</h2>
+
+<p class="text-slate-300 mt-5 max-w-2xl">
+Treasury management, collections, PAPSS payments and supply chain finance across Nigeria, Ghana, Kenya, Rwanda and Uganda.
+</p>
+
+<div class="grid md:grid-cols-2 gap-6 mt-10">
+
+<div class="card rounded-3xl p-7 cursor-pointer" onclick="openScreen('cash')">
+<div class="text-4xl">💰</div>
+
+<h3 class="text-2xl font-bold mt-4">Cash Management</h3>
+
+<p class="text-slate-300 mt-3">
+Centralised liquidity visibility, collections, treasury reporting and PAPSS settlements.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+<span class="badge">Collections</span>
+<span class="badge">Liquidity</span>
+<span class="badge">PAPSS</span>
+</div>
+</div>
+
+<div class="card rounded-3xl p-7 cursor-pointer" onclick="openScreen('scf')">
+
+<div class="text-4xl">🔗</div>
+
+<h3 class="text-2xl font-bold mt-4">
+Digital Supply Chain Finance
+</h3>
+
+<p class="text-slate-300 mt-3">
+Finance 1,200 distributors and retailers from invoice upload to settlement.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+<span class="badge">1,200 Network</span>
+<span class="badge">Invoice Finance</span>
+<span class="badge">Settlement</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CASH -->
+<section id="cash" class="screen mt-8">
+
+<button onclick="openScreen('home')" class="text-orange-400 mb-5">
+← Back
+</button>
+
+<h2 class="text-4xl font-black">Regional Treasury Dashboard</h2>
+
+<div class="grid md:grid-cols-3 gap-5 mt-8">
+
+<div class="card rounded-2xl p-6 md:col-span-2">
+
+<p class="text-slate-400 uppercase text-xs">
+Total Liquidity
+</p>
+
+<h3 id="liquidity" class="text-5xl font-black mt-2">
+$48.62M
+</h3>
+
+<p id="status" class="text-green-400 mt-2">
+Healthy liquidity position
+</p>
+
+<button onclick="receivePayment()" class="btn mt-6">
+Receive ₦18.2M Distributor Payment
+</button>
+
+</div>
+
+<div class="card rounded-2xl p-6">
+
+<p class="text-slate-400 uppercase text-xs">
+Today's Collections
+</p>
+
+<h3 class="text-3xl font-bold mt-2">
+₦18.2M
+</h3>
+
+<p class="text-slate-300 mt-2">
+Nigeria Distributor
+</p>
+
+</div>
+
+</div>
+
+<div class="card rounded-2xl p-6 mt-6">
+
+<div class="flex justify-between">
+
+<h3 class="font-bold text-xl">
+Treasury Balances
+</h3>
+
+<span class="badge">LIVE</span>
+
+</div>
+
+<div class="space-y-4 mt-5">
+
+<div class="flex justify-between"><span>🇳🇬 Nigeria</span><strong>$18.2M</strong></div>
+
+<div class="flex justify-between"><span>🇰🇪 Kenya</span><strong>$11.4M</strong></div>
+
+<div class="flex justify-between"><span>🇬🇭 Ghana</span><strong>$9.7M</strong></div>
+
+<div class="flex justify-between"><span>🇷🇼 Rwanda</span><strong>$5.1M</strong></div>
+
+<div class="flex justify-between"><span>🇺🇬 Uganda</span><strong>$4.2M</strong></div>
+
+</div>
+
+</div>
+
+<div class="card rounded-2xl p-6 mt-6">
+
+<h3 class="font-bold text-xl">
+PAPSS Cross-Border Settlement
+</h3>
+
+<div class="text-center mt-8 text-2xl font-bold">
+
+🇰🇪 Kenya
+
+<div class="text-orange-400 text-5xl my-4">↓</div>
+
+$250,000
+
+<div class="text-orange-400 text-5xl my-4">↓</div>
+
+🇬🇭 Ghana
+
+</div>
+
+<p class="text-center text-green-400 mt-6">
+Payment settled successfully.
+</p>
+
+</div>
+
+</section>
+
+<!-- SCF -->
+<section id="scf" class="screen mt-8">
+
+<button onclick="openScreen('home')" class="text-orange-400 mb-5">
+← Back
+</button>
+
+<h2 class="text-4xl font-black">
+Digital Supply Chain Finance
+</h2>
+
+<p class="text-slate-300 mt-3">
+Managing financing for 1,200 distributors & retailers.
+</p>
+
+<div class="grid md:grid-cols-4 gap-4 mt-8">
+
+<div class="card rounded-2xl p-5 text-center">
+<p class="text-xs text-slate-400 uppercase">Network</p>
+<h3 class="text-3xl font-black mt-2">1,200</h3>
+</div>
+
+<div class="card rounded-2xl p-5 text-center">
+<p class="text-xs text-slate-400 uppercase">Invoices Today</p>
+<h3 class="text-3xl font-black mt-2">248</h3>
+</div>
+
+<div class="card rounded-2xl p-5 text-center">
+<p class="text-xs text-slate-400 uppercase">Finance Requests</p>
+<h3 class="text-3xl font-black mt-2">₦320M</h3>
+</div>
+
+<div class="card rounded-2xl p-5 text-center">
+<p class="text-xs text-slate-400 uppercase">Settlement Rate</p>
+<h3 class="text-3xl font-black mt-2">98%</h3>
+</div>
+
+</div>
+
+<div class="card rounded-3xl p-6 mt-8">
+
+<h3 class="font-bold text-xl">
+Invoice Journey
+</h3>
+
+<div id="steps" class="grid md:grid-cols-5 gap-3 mt-6">
+
+<div class="bg-orange-500 rounded-xl p-4 text-center font-bold">
+ONBOARD
+</div>
+
+<div class="bg-slate-700 rounded-xl p-4 text-center">
+INVOICE
+</div>
+
+<div class="bg-slate-700 rounded-xl p-4 text-center">
+APPROVE
+</div>
+
+<div class="bg-slate-700 rounded-xl p-4 text-center">
+FINANCE
+</div>
+
+<div class="bg-slate-700 rounded-xl p-4 text-center">
+SETTLE
+</div>
+
+</div>
+
+<div id="journeyContent" class="mt-8">
+
+<h4 class="text-2xl font-bold">
+Distributor Onboarding
+</h4>
+
+<p class="text-slate-300 mt-3">
+Distributor successfully onboarded. Credit limit approved.
+</p>
+
+</div>
+
+<button onclick="nextStep()" class="btn mt-8">
+Continue Journey →
+</button>
+
+</div>
+
+</section>
+
+<footer class="text-center text-slate-500 text-sm py-12">
+AfriSnacks Digital Command Centre — ELTP Prototype
+</footer>
+
+</div>
+
+<script>
+
+function openScreen(id){
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function receivePayment(){
+document.getElementById("liquidity").innerHTML="$48.95M";
+document.getElementById("status").innerHTML="✔ Liquidity Updated After Distributor Payment";
+}
+
+let stage=0;
+
+const journey=[
+["Distributor Onboarding","Distributor successfully onboarded. Credit limit approved."],
+["Invoice Uploaded","Invoice #AF-10482 uploaded for ₦4.8M."],
+["Invoice Approved","Invoice verified against purchase order."],
+["Financing Offer","Eligible financing generated: ₦4.6M."],
+["Settlement Complete","Supplier paid. Treasury liquidity updated."]
+];
+
+function nextStep(){
+
+if(stage<4) stage++;
+
+let html="";
+
+journey.forEach((item,index)=>{
+
+if(index<=stage){
+html+=`<div class="bg-orange-500 rounded-xl p-4 text-center font-bold">${item[0].toUpperCase()}</div>`;
+}else{
+html+=`<div class="bg-slate-700 rounded-xl p-4 text-center">${item[0].toUpperCase()}</div>`;
+}
+
+});
+
+document.getElementById("steps").innerHTML=html;
+
+document.getElementById("journeyContent").innerHTML=
+`<h4 class="text-2xl font-bold">${journey[stage][0]}</h4>
+<p class="text-slate-300 mt-3">${journey[stage][1]}</p>`;
+
+if(stage===4){
+document.getElementById("liquidity").innerHTML="$48.95M";
+}
+
+}
+
+</script>
+
+</body>
+</html>
