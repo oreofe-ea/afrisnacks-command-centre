@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,885 +8,972 @@
 
 <style>
 
-/* =========================================
+/* =====================================================
    AFRISNACKS DIGITAL COMMAND CENTRE
-   DESIGN SYSTEM
-========================================= */
+   ALL-IN-ONE INDEX.HTML
+===================================================== */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --midnight: #041322;
-  --royal: #0B2344;
-  --deep: #143B62;
-  --orange: #F58220;
-  --green: #22C55E;
-  --white: #FFFFFF;
-  --slate: #CBD5E1;
-  --muted: #94A3B8;
-  --dark: #020B16;
+    --midnight: #061421;
+    --navy: #0B2344;
+    --blue: #143B62;
+    --card: #102842;
+    --orange: #F58220;
+    --orange-light: #ff9d4d;
+    --green: #31D17C;
+    --red: #ff657c;
+    --white: #FFFFFF;
+    --text: #D7E2EC;
+    --muted: #96A8B9;
+    --border: rgba(255,255,255,0.09);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--midnight);
-  color: var(--white);
-  min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--midnight);
+    color: var(--white);
+    min-height: 100vh;
 }
+
+button {
+    font-family: inherit;
+}
+
+/* =====================================================
+   APP LAYOUT
+===================================================== */
 
 .app {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
-/* =========================================
+/* =====================================================
    SIDEBAR
-========================================= */
+===================================================== */
 
 .sidebar {
-  width: 260px;
-  background: var(--royal);
-  border-right: 1px solid rgba(255,255,255,0.08);
-  padding: 28px 18px;
-  position: fixed;
-  height: 100vh;
-  z-index: 10;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--navy);
+    padding: 28px 18px;
+    border-right: 1px solid var(--border);
+    z-index: 100;
 }
 
 .brand {
-  margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .brand h2 {
-  font-size: 20px;
-  margin-bottom: 6px;
+    font-size: 23px;
 }
 
 .brand p {
-  font-size: 11px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+    margin-top: 5px;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 }
 
 .nav-btn {
-  width: 100%;
-  padding: 14px 16px;
-  margin-bottom: 8px;
-  border: none;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--slate);
-  text-align: left;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s ease;
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    padding: 14px 16px;
+    margin-bottom: 7px;
+    border-radius: 9px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
 }
 
 .nav-btn:hover {
-  background: rgba(255,255,255,0.06);
-  color: var(--white);
+    background: rgba(255,255,255,0.07);
+    transform: translateX(3px);
 }
 
 .nav-btn.active {
-  background: var(--deep);
-  color: var(--white);
-  border-left: 3px solid var(--orange);
+    background: var(--blue);
+    color: white;
+    border-left: 4px solid var(--orange);
 }
 
 .system-status {
-  position: absolute;
-  bottom: 30px;
-  left: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.04);
-  padding: 15px;
-  border-radius: 10px;
-  color: var(--muted);
-  font-size: 12px;
+    position: absolute;
+    bottom: 28px;
+    left: 18px;
+    right: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    font-size: 12px;
 }
 
 .system-status strong {
-  color: var(--white);
-  display: block;
-  margin-bottom: 8px;
+    display: block;
+    margin-bottom: 8px;
 }
 
-/* =========================================
+.online {
+    color: var(--green);
+}
+
+/* =====================================================
    MAIN
-========================================= */
+===================================================== */
 
 .main {
-  margin-left: 260px;
-  width: calc(100% - 260px);
-  min-height: 100vh;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
 }
 
 .topbar {
-  height: 75px;
-  padding: 0 35px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(4,19,34,0.92);
-  position: sticky;
-  top: 0;
-  z-index: 5;
+    height: 75px;
+    padding: 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(6,20,33,0.96);
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
 .topbar-title {
-  font-size: 14px;
-  color: var(--slate);
+    font-size: 14px;
+    color: var(--muted);
 }
 
 .user {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
 }
 
 .avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--orange);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--midnight);
-  font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--midnight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
+
+/* =====================================================
+   CONTENT
+===================================================== */
 
 .content {
-  padding: 40px;
+    padding: 38px;
+    position: relative;
+    min-height: calc(100vh - 75px);
 }
 
-/* =========================================
+/*
+   SUBTLE IMAGE VISUAL
+
+   The uploaded PNG is NOT displayed as a dashboard
+   inside another dashboard.
+
+   It is used only as a faint page atmosphere.
+*/
+
+.page-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 500px;
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.025;
+
+    pointer-events: none;
+
+    mask-image:
+        linear-gradient(
+            to bottom left,
+            black,
+            transparent 75%
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom left,
+            black,
+            transparent 75%
+        );
+}
+
+.page-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* =====================================================
    TYPOGRAPHY
-========================================= */
+===================================================== */
 
 h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+    font-size: 35px;
+    margin-bottom: 10px;
 }
 
 h2 {
-  font-size: 24px;
+    font-size: 23px;
 }
 
 h3 {
-  font-size: 16px;
+    font-size: 17px;
 }
 
 p {
-  color: var(--muted);
-  line-height: 1.6;
+    color: var(--muted);
+    line-height: 1.6;
 }
 
 .label {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-/* =========================================
-   BUTTON
-========================================= */
-
-.btn {
-  background: var(--orange);
-  color: var(--midnight);
-  border: none;
-  padding: 13px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* =========================================
-   CARD
-========================================= */
-
-.card {
-  background: rgba(11,35,68,0.75);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(2,11,22,0.3);
-  overflow: hidden;
-}
-
-.card-pad {
-  padding: 24px;
-}
-
-/* =========================================
-   IMAGE SYSTEM
-========================================= */
-
-.image-wrap {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-  background: var(--deep);
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.dashboard-image {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.hero-image {
-  height: 100%;
-  min-height: 300px;
-  object-fit: cover;
-}
-
-.section-image {
-  height: 250px;
-}
-
-.small-image {
-  height: 180px;
-}
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 25px;
-  margin-bottom: 25px;
-}
-
-.hero {
-  min-height: 300px;
-  padding: 0;
-  background:
-    radial-gradient(circle at top right, rgba(20,59,98,0.8), transparent 45%),
-    var(--royal);
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-}
-
-.hero-copy {
-  padding: 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero h1 {
-  font-size: 46px;
-  max-width: 600px;
-  margin: 20px 0;
-}
-
-.hero p {
-  font-size: 17px;
-}
-
-.hero-visual {
-  min-height: 300px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-visual img {
-  width: 100%;
-  height: 100%;
-  max-height: 330px;
-  object-fit: cover;
-  border-radius: 12px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
 }
 
 .eyebrow {
-  color: var(--orange);
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
-.liquidity {
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.big-number {
-  font-size: 42px;
-  font-weight: bold;
-  margin: 12px 0;
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .green {
-  color: var(--green);
+    color: var(--green);
 }
 
 .orange {
-  color: var(--orange);
+    color: var(--orange);
 }
 
-/* =========================================
+.red {
+    color: var(--red);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    border: none;
+    background: var(--orange);
+    color: var(--midnight);
+    padding: 14px 21px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: var(--orange-light);
+}
+
+.btn.secondary {
+    background: rgba(255,255,255,0.07);
+    color: white;
+    border: 1px solid var(--border);
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+    background: rgba(16,40,66,0.98);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-pad {
+    padding: 26px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.hero {
+    padding: 45px;
+    min-height: 300px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(245,130,32,0.14),
+            transparent 42%
+        ),
+        linear-gradient(135deg,#102842,#0B2344);
+}
+
+.hero h1 {
+    font-size: 47px;
+    max-width: 650px;
+    margin: 18px 0;
+}
+
+.hero p {
+    font-size: 17px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.liquidity {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.big-number {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+/* =====================================================
    KPI
-========================================= */
+===================================================== */
 
 .kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-bottom: 24px;
 }
 
 .kpi {
-  padding: 22px;
+    padding: 24px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.kpi:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245,130,32,0.5);
 }
 
 .kpi .value {
-  font-size: 25px;
-  font-weight: bold;
-  margin: 10px 0;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 14px 0;
 }
 
-/* =========================================
+/* =====================================================
    GRIDS
-========================================= */
+===================================================== */
 
 .two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
 }
 
 .feature-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
 }
 
 .feature {
-  padding: 30px;
+    padding: 30px;
 }
 
 .feature-icon {
-  width: 55px;
-  height: 55px;
-  background: rgba(245,130,32,0.12);
-  border: 1px solid rgba(245,130,32,0.4);
-  color: var(--orange);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.feature h2 {
-  margin-bottom: 12px;
-}
-
-.feature .btn {
-  margin-top: 25px;
+    width: 56px;
+    height: 56px;
+    background: rgba(245,130,32,0.12);
+    border: 1px solid rgba(245,130,32,0.35);
+    color: var(--orange);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 20px;
 }
 
 .tag {
-  display: inline-block;
-  padding: 7px 10px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  font-size: 11px;
-  color: var(--slate);
-  margin: 15px 5px 0 0;
+    display: inline-block;
+    padding: 7px 11px;
+    margin: 18px 5px 0 0;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    font-size: 11px;
 }
 
-/* =========================================
+/* =====================================================
    PAGE HEADER
-========================================= */
+===================================================== */
 
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
 }
 
-/* =========================================
-   IMAGE + TEXT PANELS
-========================================= */
-
-.visual-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 22px;
-}
-
-.visual-panel .card {
-  padding: 20px;
-}
-
-.visual-panel h3 {
-  margin-bottom: 15px;
-}
-
-.map-panel {
-  min-height: 300px;
-}
-
-.map-panel img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* =========================================
-   BALANCES
-========================================= */
-
-.balance-row {
-  display: grid;
-  grid-template-columns: 90px 1fr 80px;
-  gap: 15px;
-  align-items: center;
-  margin: 20px 0;
-  color: var(--slate);
-}
-
-.bar {
-  height: 8px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.bar span {
-  display: block;
-  height: 100%;
-  background: var(--orange);
-  border-radius: 20px;
-}
-
-/* =========================================
+/* =====================================================
    CHART
-========================================= */
+===================================================== */
 
-.chart {
-  height: 280px;
-  margin-top: 20px;
-  position: relative;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background:
-    linear-gradient(
-      transparent 95%,
-      rgba(255,255,255,0.05) 95%
-    );
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.chart-tab {
+    border: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.06);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.chart-tab.active {
+    background: var(--orange);
+    color: var(--midnight);
+}
+
+.chart-wrapper {
+    position: relative;
+    margin-top: 20px;
+    height: 330px;
+}
+
+.chart-wrapper svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.grid-line {
+    stroke: rgba(255,255,255,0.1);
+    stroke-width: 1;
+}
+
+.chart-area {
+    fill: rgba(49,209,124,0.12);
 }
 
 .chart-line {
-  position: absolute;
-  left: 5%;
-  right: 5%;
-  bottom: 20%;
-  height: 3px;
-  background: var(--green);
-  transform: rotate(-4deg);
-  box-shadow: 0 0 15px rgba(34,197,94,0.5);
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 7px rgba(49,209,124,0.7));
 }
 
-/* =========================================
-   FEED
-========================================= */
-
-.feed-item {
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  justify-content: space-between;
-  color: var(--slate);
+.chart-point {
+    fill: var(--midnight);
+    stroke: var(--green);
+    stroke-width: 4;
+    cursor: pointer;
 }
 
-/* =========================================
+.chart-point:hover {
+    fill: var(--orange);
+    stroke: var(--orange);
+}
+
+.axis-label {
+    fill: var(--muted);
+    font-size: 11px;
+}
+
+.chart-tooltip {
+    position: absolute;
+    display: none;
+    background: #07111d;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* =====================================================
+   BALANCES
+===================================================== */
+
+.balance-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 80px;
+    gap: 14px;
+    align-items: center;
+    margin: 21px 0;
+}
+
+.bar {
+    height: 9px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        var(--orange),
+        var(--orange-light)
+    );
+}
+
+/* =====================================================
    TABLE
-========================================= */
+===================================================== */
 
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
 }
 
 .table th {
-  text-align: left;
-  color: var(--muted);
-  font-size: 12px;
-  padding: 14px;
+    text-align: left;
+    color: var(--muted);
+    font-size: 11px;
+    padding: 14px;
 }
 
 .table td {
-  padding: 15px 14px;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  color: var(--slate);
-  font-size: 13px;
+    padding: 16px 14px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    color: var(--text);
+    font-size: 13px;
 }
 
 .status {
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
 }
 
-.status.pending {
-  color: var(--orange);
-  background: rgba(245,130,32,0.1);
+.pending {
+    color: var(--orange);
+    background: rgba(245,130,32,0.12);
 }
 
-.status.approved {
-  color: var(--green);
-  background: rgba(34,197,94,0.1);
+.approved {
+    color: var(--green);
+    background: rgba(49,209,124,0.12);
 }
 
-/* =========================================
-   SETTLEMENT
-========================================= */
+.action-btn {
+    border: none;
+    background: rgba(49,209,124,0.12);
+    color: var(--green);
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+/* =====================================================
+   PAPSS
+===================================================== */
 
 .settlement {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  gap: 30px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
 }
 
 .party {
-  padding: 25px;
-  text-align: center;
-}
-
-.party-image {
-  width: 100%;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+    padding: 28px;
+    text-align: center;
 }
 
 .route-center {
-  text-align: center;
+    text-align: center;
 }
 
 .payment-route {
-  height: 4px;
-  background: var(--orange);
-  margin: 20px 0;
-  box-shadow: 0 0 20px rgba(245,130,32,0.7);
+    height: 6px;
+    margin: 25px 0;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        var(--orange),
+        var(--green),
+        var(--orange)
+    );
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        box-shadow: 0 0 24px rgba(245,130,32,0.8);
+    }
 }
 
 .success-badge {
-  display: inline-block;
-  background: rgba(34,197,94,0.12);
-  color: var(--green);
-  padding: 9px 14px;
-  border-radius: 20px;
-  font-size: 12px;
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 20px;
+    color: var(--green);
+    background: rgba(49,209,124,0.12);
+    font-size: 12px;
 }
 
-/* =========================================
+/* =====================================================
+   FEED
+===================================================== */
+
+.feed-item {
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =====================================================
    PROFILE
-========================================= */
+===================================================== */
 
 .profile {
-  padding: 35px;
+    padding: 35px;
 }
 
 .profile-top {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .profile-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 16px;
-  background: var(--deep);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  overflow: hidden;
-}
-
-.profile-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 70px;
+    height: 70px;
+    border-radius: 17px;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
 }
 
 .profile-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
 }
 
 .profile-stat {
-  padding: 20px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 12px;
+    padding: 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
 }
 
 .profile-stat strong {
-  font-size: 20px;
-  display: block;
-  margin-top: 8px;
+    display: block;
+    margin-top: 8px;
+    font-size: 20px;
 }
 
-/* =========================================
+/* =====================================================
    WORKFLOW
-========================================= */
+===================================================== */
 
 .workflow {
-  padding: 45px 25px;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+    padding: 45px 25px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .workflow::before {
-  content: "";
-  position: absolute;
-  top: 70px;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: rgba(255,255,255,0.1);
+    content: "";
+    position: absolute;
+    top: 69px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: rgba(255,255,255,0.12);
 }
 
 .step {
-  width: 18%;
-  text-align: center;
-  position: relative;
-  z-index: 2;
+    width: 18%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .step-circle {
-  width: 48px;
-  height: 48px;
-  margin: auto auto 15px;
-  border-radius: 50%;
-  background: var(--deep);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
+    width: 50px;
+    height: 50px;
+    margin: auto auto 14px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .step.completed .step-circle {
-  background: var(--green);
-  color: var(--midnight);
+    background: var(--green);
+    color: var(--midnight);
 }
 
 .step.active .step-circle {
-  background: var(--orange);
-  color: var(--midnight);
+    background: var(--orange);
+    color: var(--midnight);
 }
 
-/* =========================================
+/* =====================================================
    IMPACT
-========================================= */
+===================================================== */
 
 .impact {
-  display: grid;
-  grid-template-columns: 1fr 150px 1fr;
-  gap: 20px;
-  align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 150px 1fr;
+    align-items: center;
+    gap: 20px;
 }
 
 .impact-card {
-  padding: 35px;
-  text-align: center;
+    padding: 35px;
+    text-align: center;
 }
 
 .impact-arrow {
-  text-align: center;
-  font-size: 55px;
-  color: var(--green);
+    text-align: center;
+    font-size: 55px;
+    color: var(--green);
 }
 
-/* =========================================
-   FOOTER IMAGE
-========================================= */
+/* =====================================================
+   MODAL
+===================================================== */
 
-.impact-visual {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 22px;
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
 }
 
-.impact-visual img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 14px;
+.modal.show {
+    display: flex;
 }
 
-/* =========================================
+.modal-box {
+    width: 450px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 18px;
+    background: #0D243B;
+    border: 1px solid var(--border);
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.06);
+    color: white;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    padding: 15px 20px;
+    border-radius: 9px;
+    background: var(--green);
+    color: var(--midnight);
+    font-weight: bold;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.35s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* =====================================================
    RESPONSIVE
-========================================= */
+===================================================== */
 
-@media(max-width: 1200px) {
+@media(max-width: 1050px) {
 
-  .hero {
-    grid-template-columns: 1fr;
-  }
+    .sidebar {
+        width: 210px;
+    }
 
-  .hero-visual {
-    min-height: 240px;
-  }
+    .main {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+    }
 
-  .hero-image {
-    min-height: 220px;
-  }
+    .kpi-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-  .visual-panel,
-  .impact-visual {
-    grid-template-columns: 1fr;
-  }
-}
+    .hero-grid,
+    .two-col,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
 
-@media(max-width: 1000px) {
+    .profile-stats {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-  .sidebar {
-    width: 210px;
-  }
+    .settlement {
+        grid-template-columns: 1fr;
+    }
 
-  .main {
-    margin-left: 210px;
-    width: calc(100% - 210px);
-  }
-
-  .kpi-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-grid,
-  .feature-grid,
-  .two-col {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .settlement {
-    grid-template-columns: 1fr;
-  }
-
-  .impact {
-    grid-template-columns: 1fr;
-  }
-
-  .impact-arrow {
-    transform: rotate(90deg);
-  }
 }
 
 @media(max-width: 700px) {
 
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
+    .sidebar {
+        display: none;
+    }
 
-  .system-status {
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    margin-top: 25px;
-  }
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
 
-  .app {
-    display: block;
-  }
+    .content {
+        padding: 22px;
+    }
 
-  .main {
-    margin-left: 0;
-    width: 100%;
-  }
+    .topbar {
+        padding: 0 20px;
+    }
 
-  .topbar {
-    padding: 0 20px;
-  }
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .content {
-    padding: 20px;
-  }
+    .hero {
+        padding: 30px;
+    }
 
-  .kpi-grid,
-  .profile-stats {
-    grid-template-columns: 1fr;
-  }
+    .hero h1 {
+        font-size: 34px;
+    }
 
-  .hero-copy {
-    padding: 30px;
-  }
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
 
-  .hero h1 {
-    font-size: 34px;
-  }
+    .workflow {
+        flex-direction: column;
+        gap: 25px;
+    }
 
-  .workflow {
-    flex-direction: column;
-    gap: 30px;
-  }
+    .workflow::before {
+        display: none;
+    }
 
-  .workflow::before {
-    display: none;
-  }
+    .step {
+        width: 100%;
+    }
 
-  .step {
-    width: 100%;
-  }
+    .impact {
+        grid-template-columns: 1fr;
+    }
 
-  .table {
-    min-width: 600px;
-  }
-
-  .card.card-pad {
-    overflow-x: auto;
-  }
 }
 
 </style>
@@ -897,1121 +983,1533 @@ p {
 
 <div id="app"></div>
 
+<div class="modal" id="paymentModal">
+
+    <div class="modal-box">
+
+        <h2>Create Payment</h2>
+
+        <div class="form-group">
+            <label>Destination Region</label>
+            <select>
+                <option>Ghana</option>
+                <option>Kenya</option>
+                <option>Nigeria</option>
+                <option>Rwanda</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Payment Amount</label>
+            <input type="text" placeholder="$250,000">
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="btn secondary"
+                onclick="closePayment()"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="btn"
+                onclick="submitPayment()"
+            >
+                Submit Payment
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="toast" id="toast">
+    Action completed successfully.
+</div>
+
+
 <script>
 
-/* =========================================
-   AFRISNACKS PROTOTYPE
-========================================= */
+/* =====================================================
+   DATA
+===================================================== */
 
 const app = document.getElementById("app");
 
 const pages = {
-  mission: "Mission Control",
-  cash: "Cash Management",
-  papss: "PAPSS Settlement",
-  supply: "Supply Chain Finance",
-  distributor: "Distributor Profile",
-  journey: "Financing Journey",
-  impact: "Treasury Impact"
+
+    mission: "Mission Control",
+    cash: "Cash Management",
+    papss: "PAPSS Settlement",
+    supply: "Supply Chain Finance",
+    distributor: "Distributor Profile",
+    journey: "Financing Journey",
+    impact: "Treasury Impact"
+
 };
 
 let currentPage = "mission";
 
 
-/* =========================================
+/* =====================================================
    LAYOUT
-========================================= */
+===================================================== */
 
-function renderLayout(content) {
+function renderLayout(content, imageName = "") {
 
-  app.innerHTML = `
+    app.innerHTML = `
 
-  <div class="app">
+        <div class="app">
 
-    <aside class="sidebar">
+            <aside class="sidebar">
 
-      <div class="brand">
-        <h2>AfriSnacks</h2>
-        <p>Digital Command Centre</p>
-      </div>
+                <div class="brand">
+                    <h2>AfriSnacks</h2>
+                    <p>Digital Command Centre</p>
+                </div>
 
-      ${Object.entries(pages).map(([id, name]) => `
-        <button
-          class="nav-btn ${currentPage === id ? "active" : ""}"
-          onclick="goTo('${id}')"
-        >
-          ${name}
-        </button>
-      `).join("")}
+                ${Object.entries(pages).map(([id,name]) => `
 
-      <div class="system-status">
-        <strong>● System Status</strong>
-        <span class="green">All Systems Operational</span>
-      </div>
+                    <button
+                        class="nav-btn ${currentPage === id ? "active" : ""}"
+                        onclick="goTo('${id}')"
+                    >
+                        ${name}
+                    </button>
 
-    </aside>
+                `).join("")}
 
-    <main class="main">
+                <div class="system-status">
 
-      <header class="topbar">
+                    <strong>● System Status</strong>
 
-        <div class="topbar-title">
-          AfriSnacks Digital Command Centre
+                    <span class="online">
+                        All Systems Operational
+                    </span>
+
+                </div>
+
+            </aside>
+
+
+            <main class="main">
+
+                <header class="topbar">
+
+                    <div class="topbar-title">
+                        AfriSnacks Digital Command Centre
+                    </div>
+
+                    <div class="user">
+
+                        <span>Executive Treasury</span>
+
+                        <div class="avatar">
+                            AT
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+                <section class="content">
+
+                    <div
+                        class="page-image"
+                        style="background-image:url('${imageName}')"
+                    ></div>
+
+                    <div class="page-content">
+
+                        ${content}
+
+                    </div>
+
+                </section>
+
+            </main>
+
         </div>
 
-        <div class="user">
-          <span>Executive Treasury</span>
-          <div class="avatar">AT</div>
-        </div>
+    `;
 
-      </header>
-
-      <section class="content">
-        ${content}
-      </section>
-
-    </main>
-
-  </div>
-  `;
 }
 
 
 function goTo(page) {
-  currentPage = page;
-  render();
+
+    currentPage = page;
+
+    render();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
 
 
-/* =========================================
+/* =====================================================
    MISSION CONTROL
-========================================= */
+===================================================== */
 
 function missionPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="hero-grid">
+<div class="hero-grid">
 
-      <div class="card hero">
+    <div class="card hero">
 
-        <div class="hero-copy">
-
-          <div class="eyebrow">
+        <div class="eyebrow">
             AFRICA-WIDE TREASURY VISIBILITY
-          </div>
+        </div>
 
-          <h1>
+        <h1>
             Run Africa from One Command Centre.
-          </h1>
+        </h1>
 
-          <p>
-            Real-time visibility. Smarter liquidity.
-            Stronger supply chains.
-          </p>
+        <p>
+            Real-time visibility, smarter liquidity
+            and stronger supply chains across
+            AfriSnacks' regional operations.
+        </p>
 
-          <button
-            class="btn"
-            style="margin-top:25px"
-            onclick="goTo('cash')"
-          >
-            Explore Treasury →
-          </button>
+        <div class="hero-actions">
+
+            <button
+                class="btn"
+                onclick="goTo('cash')"
+            >
+                Explore Treasury →
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="goTo('papss')"
+            >
+                View PAPSS
+            </button>
 
         </div>
 
-        <div class="hero-visual">
-          <img
-            src="mission-control.png"
-            alt="AfriSnacks Digital Command Centre"
-          >
+    </div>
+
+
+    <div class="card liquidity">
+
+        <div class="label">
+            TOTAL LIQUIDITY
         </div>
-
-      </div>
-
-
-      <div class="card liquidity">
-
-        <div class="label">TOTAL LIQUIDITY</div>
 
         <div class="big-number green">
-          $48.62M
+            $48.62M
         </div>
 
         <p>
-          Available across all regional accounts
+            Available across all regional accounts
         </p>
 
-        <p class="green" style="margin-top:15px">
-          ↑ 3.61% vs yesterday
+        <p
+            class="green"
+            style="margin-top:15px"
+        >
+            ↑ 3.61% vs yesterday
         </p>
-
-      </div>
 
     </div>
 
+</div>
 
-    <div class="kpi-grid">
 
-      <div class="card kpi">
+<div class="kpi-grid">
+
+    <div
+        class="card kpi"
+        onclick="goTo('cash')"
+    >
         <div class="label">COLLECTIONS TODAY</div>
         <div class="value">₦18.2M</div>
         <span class="green">↑ 12.4%</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+
+    <div
+        class="card kpi"
+        onclick="goTo('papss')"
+    >
         <div class="label">PAPSS SETTLEMENT</div>
         <div class="value green">Active</div>
         <span>Real-time settlement</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+
+    <div
+        class="card kpi"
+        onclick="goTo('supply')"
+    >
         <div class="label">DISTRIBUTOR NETWORK</div>
         <div class="value">1,200</div>
         <span>Active distributors</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+
+    <div class="card kpi">
+
         <div class="label">CURRENCIES</div>
+
         <div class="value">12</div>
+
         <span>Supported currencies</span>
-      </div>
 
     </div>
 
-
-    <div class="visual-panel">
-
-      <div class="card card-pad map-panel">
-
-        <h3>Regional Treasury Coverage</h3>
-
-        <p style="margin:8px 0 15px">
-          One view across AfriSnacks' African operating markets.
-        </p>
-
-        <img
-          src="africa-map.png"
-          alt="AfriSnacks Africa regional treasury map"
-        >
-
-      </div>
+</div>
 
 
-      <div class="card card-pad">
+<div class="feature-grid">
 
-        <h3>Command Centre Intelligence</h3>
-
-        <p style="margin:8px 0 20px">
-          Integrated visibility across liquidity,
-          collections, settlement and supply chain finance.
-        </p>
-
-        <div class="feed-item">
-          <span>Liquidity Position</span>
-          <span class="green">Healthy</span>
-        </div>
-
-        <div class="feed-item">
-          <span>Cross-Border Settlement</span>
-          <span class="green">Active</span>
-        </div>
-
-        <div class="feed-item">
-          <span>Distributor Financing</span>
-          <span class="orange">68% Utilised</span>
-        </div>
-
-        <div class="feed-item">
-          <span>Regional Collections</span>
-          <span class="green">On Track</span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-      <div class="card feature">
+    <div class="card feature">
 
         <div class="feature-icon">▣</div>
 
         <h2>Cash Management</h2>
 
-        <p>
-          Optimise liquidity, collections
-          and regional cash positions.
+        <p style="margin-top:12px">
+            Optimise liquidity, collections
+            and regional cash positions.
         </p>
 
         <span class="tag">Liquidity</span>
         <span class="tag">Collections</span>
         <span class="tag">Forecasting</span>
 
-        <br>
+        <br><br>
 
         <button
-          class="btn"
-          onclick="goTo('cash')"
+            class="btn"
+            onclick="goTo('cash')"
         >
-          Open Cash Management →
+            Open Cash Management →
         </button>
 
-      </div>
+    </div>
 
 
-      <div class="card feature">
+    <div class="card feature">
 
         <div class="feature-icon">▱</div>
 
         <h2>Supply Chain Finance</h2>
 
-        <p>
-          Empower distributors and unlock
-          working capital across Africa.
+        <p style="margin-top:12px">
+            Empower distributors and unlock
+            working capital across Africa.
         </p>
 
         <span class="tag">Invoices</span>
         <span class="tag">Financing</span>
         <span class="tag">Settlement</span>
 
-        <br>
+        <br><br>
 
         <button
-          class="btn"
-          onclick="goTo('supply')"
+            class="btn"
+            onclick="goTo('supply')"
         >
-          Open Supply Chain Finance →
+            Open Supply Chain Finance →
         </button>
-
-      </div>
 
     </div>
 
-  `);
+</div>
+
+`, "mission-control.png");
+
 }
 
 
-/* =========================================
+/* =====================================================
    CASH MANAGEMENT
-========================================= */
+===================================================== */
 
 function cashPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="page-header">
+<div class="page-header">
 
-      <div>
+    <div>
+
         <h1>Cash Management</h1>
-        <p>
-          Real-time liquidity and collections intelligence.
-        </p>
-      </div>
 
-      <button class="btn">Create Payment</button>
+        <p>
+            Real-time liquidity and collections intelligence.
+        </p>
 
     </div>
 
+    <button
+        class="btn"
+        onclick="openPayment()"
+    >
+        Create Payment
+    </button>
 
-    <div class="kpi-grid">
+</div>
 
-      <div class="card kpi">
+
+<div class="kpi-grid">
+
+    <div class="card kpi">
         <div class="label">LIQUIDITY</div>
         <div class="value green">$48.62M</div>
         <span class="green">↑ 3.61%</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">COLLECTIONS</div>
         <div class="value">₦18.2M</div>
         <span class="green">↑ 12.4%</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">CASH CONCENTRATION</div>
         <div class="value">82%</div>
         <span class="green">↑ 5%</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">REGIONS</div>
         <div class="value">5</div>
         <span>Active markets</span>
-      </div>
+    </div>
+
+</div>
+
+
+<div class="two-col">
+
+    <div class="card card-pad">
+
+        <div class="chart-header">
+
+            <div>
+                <h3>Liquidity Forecast</h3>
+                <p style="font-size:12px">
+                    Projected regional liquidity position
+                </p>
+            </div>
+
+            <div class="chart-tabs">
+
+                <button
+                    class="chart-tab active"
+                    onclick="changeChart(this,'week')"
+                >
+                    7 Days
+                </button>
+
+                <button
+                    class="chart-tab"
+                    onclick="changeChart(this,'month')"
+                >
+                    30 Days
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-wrapper">
+
+            <svg
+                viewBox="0 0 600 300"
+                preserveAspectRatio="none"
+            >
+
+                <line
+                    class="grid-line"
+                    x1="40" y1="50"
+                    x2="580" y2="50"
+                />
+
+                <line
+                    class="grid-line"
+                    x1="40" y1="110"
+                    x2="580" y2="110"
+                />
+
+                <line
+                    class="grid-line"
+                    x1="40" y1="170"
+                    x2="580" y2="170"
+                />
+
+                <line
+                    class="grid-line"
+                    x1="40" y1="230"
+                    x2="580" y2="230"
+                />
+
+
+                <path
+                    class="chart-area"
+                    d="
+                        M40 220
+                        L120 190
+                        L200 205
+                        L280 150
+                        L360 130
+                        L440 105
+                        L520 75
+                        L520 250
+                        L40 250 Z
+                    "
+                />
+
+
+                <path
+                    class="chart-line"
+                    d="
+                        M40 220
+                        L120 190
+                        L200 205
+                        L280 150
+                        L360 130
+                        L440 105
+                        L520 75
+                    "
+                />
+
+
+                <circle
+                    class="chart-point"
+                    cx="40" cy="220" r="6"
+                    data-value="$48.1M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+                <circle
+                    class="chart-point"
+                    cx="120" cy="190" r="6"
+                    data-value="$48.3M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+                <circle
+                    class="chart-point"
+                    cx="200" cy="205" r="6"
+                    data-value="$48.2M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+                <circle
+                    class="chart-point"
+                    cx="280" cy="150" r="6"
+                    data-value="$48.6M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+                <circle
+                    class="chart-point"
+                    cx="360" cy="130" r="6"
+                    data-value="$48.8M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+                <circle
+                    class="chart-point"
+                    cx="440" cy="105" r="6"
+                    data-value="$49.0M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+                <circle
+                    class="chart-point"
+                    cx="520" cy="75" r="6"
+                    data-value="$49.3M"
+                    onmouseenter="showTooltip(event)"
+                    onmouseleave="hideTooltip()"
+                />
+
+            </svg>
+
+            <div
+                id="chartTooltip"
+                class="chart-tooltip"
+            ></div>
+
+        </div>
 
     </div>
 
 
     <div class="card card-pad">
-
-      <h3>Cash Management Solution</h3>
-
-      <p style="margin:8px 0 20px">
-        Centralised visibility across collections,
-        liquidity and regional cash positions.
-      </p>
-
-      <img
-        src="cash-management.png"
-        alt="AfriSnacks Cash Management"
-        class="dashboard-image section-image"
-      >
-
-    </div>
-
-
-    <div class="two-col">
-
-      <div class="card card-pad">
-
-        <h3>Liquidity Forecast</h3>
-
-        <div class="chart">
-          <div class="chart-line"></div>
-        </div>
-
-      </div>
-
-
-      <div class="card card-pad">
 
         <h3>Regional Balances</h3>
 
         <div class="balance-row">
-          <span>Nigeria</span>
-          <div class="bar"><span style="width:82%"></span></div>
-          <strong>$24.3M</strong>
+
+            <span>Nigeria</span>
+
+            <div class="bar">
+                <span style="width:82%"></span>
+            </div>
+
+            <strong>$24.3M</strong>
+
         </div>
+
 
         <div class="balance-row">
-          <span>Ghana</span>
-          <div class="bar"><span style="width:60%"></span></div>
-          <strong>$9.8M</strong>
+
+            <span>Ghana</span>
+
+            <div class="bar">
+                <span style="width:60%"></span>
+            </div>
+
+            <strong>$9.8M</strong>
+
         </div>
+
 
         <div class="balance-row">
-          <span>Kenya</span>
-          <div class="bar"><span style="width:48%"></span></div>
-          <strong>$7.1M</strong>
+
+            <span>Kenya</span>
+
+            <div class="bar">
+                <span style="width:48%"></span>
+            </div>
+
+            <strong>$7.1M</strong>
+
         </div>
+
 
         <div class="balance-row">
-          <span>Rwanda</span>
-          <div class="bar"><span style="width:28%"></span></div>
-          <strong>$4.5M</strong>
-        </div>
 
-      </div>
+            <span>Rwanda</span>
+
+            <div class="bar">
+                <span style="width:28%"></span>
+            </div>
+
+            <strong>$4.5M</strong>
+
+        </div>
 
     </div>
 
-  `);
+</div>
+
+`, "cash-management.png");
+
 }
 
 
-/* =========================================
+/* =====================================================
    PAPSS
-========================================= */
+===================================================== */
 
 function papssPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="page-header">
+<div class="page-header">
 
-      <div>
+    <div>
+
         <h1>PAPSS Settlement</h1>
+
         <p>
-          Real-time cross-border treasury settlement.
+            Real-time cross-border treasury settlement.
         </p>
-      </div>
+
+    </div>
+
+</div>
+
+
+<div class="card settlement">
+
+    <div class="card party">
+
+        <h2>🇰🇪</h2>
+
+        <h3 style="margin-top:12px">
+            Kenya Treasury
+        </h3>
+
+        <p>
+            Regional treasury account
+        </p>
 
     </div>
 
 
-    <div class="card card-pad">
+    <div class="route-center">
 
-      <h3>PAPSS Cross-Border Settlement</h3>
-
-      <p style="margin:8px 0 20px">
-        Faster, more efficient settlement between
-        African markets.
-      </p>
-
-      <img
-        src="papss-settlement.png"
-        alt="PAPSS cross-border settlement"
-        class="dashboard-image section-image"
-      >
-
-    </div>
-
-
-    <div class="card settlement" style="margin-top:22px">
-
-      <div class="card party">
-
-        <div class="party-image"
-             style="display:flex;align-items:center;justify-content:center;background:var(--deep);font-size:50px;">
-          🇰🇪
+        <div class="big-number">
+            $250,000
         </div>
-
-        <h3>Kenya Treasury</h3>
-        <p>Regional treasury account</p>
-
-      </div>
-
-
-      <div class="route-center">
-
-        <div class="big-number">$250,000</div>
 
         <div class="payment-route"></div>
 
         <span class="success-badge">
-          ✓ Settlement Successful
+            ✓ Settlement Successful
         </span>
 
         <p style="margin-top:15px">
-          PAPSS Cross-Border Route
+            PAPSS Cross-Border Route
         </p>
-
-      </div>
-
-
-      <div class="card party">
-
-        <div class="party-image"
-             style="display:flex;align-items:center;justify-content:center;background:var(--deep);font-size:50px;">
-          🇬🇭
-        </div>
-
-        <h3>Ghana Treasury</h3>
-        <p>Regional treasury account</p>
-
-      </div>
 
     </div>
 
 
-    <div class="two-col">
+    <div class="card party">
 
-      <div class="card card-pad">
+        <h2>🇬🇭</h2>
+
+        <h3 style="margin-top:12px">
+            Ghana Treasury
+        </h3>
+
+        <p>
+            Regional treasury account
+        </p>
+
+    </div>
+
+</div>
+
+
+<div
+    class="two-col"
+    style="margin-top:22px"
+>
+
+    <div class="card card-pad">
 
         <h3>Compliance Timeline</h3>
 
         <div class="feed-item">
-          <span>✓ Payment Initiated</span>
-          <span class="green">Completed</span>
+            <span>✓ Payment Initiated</span>
+            <span class="green">Completed</span>
         </div>
 
         <div class="feed-item">
-          <span>✓ Compliance Screening</span>
-          <span class="green">Passed</span>
+            <span>✓ Compliance Screening</span>
+            <span class="green">Passed</span>
         </div>
 
         <div class="feed-item">
-          <span>✓ PAPSS Routing</span>
-          <span class="green">Completed</span>
+            <span>✓ PAPSS Routing</span>
+            <span class="green">Completed</span>
         </div>
 
         <div class="feed-item">
-          <span>✓ Settlement Completed</span>
-          <span class="green">Successful</span>
+            <span>✓ Settlement Completed</span>
+            <span class="green">Successful</span>
         </div>
 
-      </div>
+    </div>
 
 
-      <div class="card card-pad">
+    <div class="card card-pad">
 
         <h3>Settlement Summary</h3>
 
-        <p class="label" style="margin-top:20px">AMOUNT</p>
+        <p class="label" style="margin-top:25px">
+            AMOUNT
+        </p>
 
-        <div class="big-number">$250,000</div>
-
-        <p class="label">STATUS</p>
-
-        <div class="green">
-          Successfully Settled
+        <div class="big-number">
+            $250,000
         </div>
 
-      </div>
+        <p class="label">
+            STATUS
+        </p>
+
+        <p class="green">
+            Successfully Settled
+        </p>
 
     </div>
 
-  `);
+</div>
+
+`, "papss-settlement.png");
+
 }
 
 
-/* =========================================
+/* =====================================================
    SUPPLY CHAIN FINANCE
-========================================= */
+===================================================== */
 
 function supplyPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="page-header">
+<div class="page-header">
 
-      <div>
+    <div>
+
         <h1>Supply Chain Finance</h1>
-        <p>
-          Finance distributors and optimise working capital.
-        </p>
-      </div>
 
-      <button
+        <p>
+            Finance distributors and optimise working capital.
+        </p>
+
+    </div>
+
+    <button
         class="btn"
         onclick="goTo('distributor')"
-      >
+    >
         View Distributor
-      </button>
+    </button>
 
-    </div>
-
-
-    <div class="card card-pad">
-
-      <h3>Supply Chain Finance Solution</h3>
-
-      <p style="margin:8px 0 20px">
-        Connect invoices, distributor financing
-        and settlement into one workflow.
-      </p>
-
-      <img
-        src="supply-chain-finance.png"
-        alt="AfriSnacks Supply Chain Finance"
-        class="dashboard-image section-image"
-      >
-
-    </div>
+</div>
 
 
-    <div class="kpi-grid" style="margin-top:25px">
+<div class="kpi-grid">
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">ACTIVE DISTRIBUTORS</div>
         <div class="value">1,200</div>
         <span class="green">↑ 4%</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">PENDING INVOICES</div>
         <div class="value orange">₦28.6M</div>
         <span>Awaiting approval</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">FINANCING UTILISATION</div>
         <div class="value">68%</div>
         <span class="green">↑ 8%</span>
-      </div>
+    </div>
 
-      <div class="card kpi">
+    <div class="card kpi">
         <div class="label">SETTLEMENT SUCCESS</div>
         <div class="value green">97.8%</div>
         <span>Regional average</span>
-      </div>
-
     </div>
 
+</div>
 
-    <div class="card card-pad">
 
-      <h3>Invoice Queue</h3>
+<div class="card card-pad">
 
-      <table class="table">
+    <h3>Invoice Queue</h3>
+
+    <table class="table">
 
         <thead>
-          <tr>
-            <th>Invoice ID</th>
-            <th>Distributor</th>
-            <th>Amount</th>
-            <th>Status</th>
-          </tr>
+
+            <tr>
+                <th>Invoice ID</th>
+                <th>Distributor</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
         </thead>
 
         <tbody>
 
-          <tr>
-            <td>INV-00482</td>
-            <td>AfriSnacks Ghana</td>
-            <td>₦4.8M</td>
-            <td>
-              <span class="status pending">
-                Pending
-              </span>
-            </td>
-          </tr>
+            <tr id="invoice1">
 
-          <tr>
-            <td>INV-00483</td>
-            <td>Nigeria Distributor</td>
-            <td>₦2.4M</td>
-            <td>
-              <span class="status approved">
-                Approved
-              </span>
-            </td>
-          </tr>
+                <td>INV-00482</td>
 
-          <tr>
-            <td>INV-00484</td>
-            <td>Kenya Retail</td>
-            <td>₦3.1M</td>
-            <td>
-              <span class="status pending">
-                Pending
-              </span>
-            </td>
-          </tr>
+                <td>AfriSnacks Ghana</td>
+
+                <td>₦4.8M</td>
+
+                <td>
+                    <span class="status pending">
+                        Pending
+                    </span>
+                </td>
+
+                <td>
+                    <button
+                        class="action-btn"
+                        onclick="approveInvoice('invoice1')"
+                    >
+                        Approve
+                    </button>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>INV-00483</td>
+
+                <td>Nigeria Distributor</td>
+
+                <td>₦2.4M</td>
+
+                <td>
+                    <span class="status approved">
+                        Approved
+                    </span>
+                </td>
+
+                <td>
+                    ✓
+                </td>
+
+            </tr>
+
+
+            <tr id="invoice3">
+
+                <td>INV-00484</td>
+
+                <td>Kenya Retail</td>
+
+                <td>₦3.1M</td>
+
+                <td>
+                    <span class="status pending">
+                        Pending
+                    </span>
+                </td>
+
+                <td>
+                    <button
+                        class="action-btn"
+                        onclick="approveInvoice('invoice3')"
+                    >
+                        Approve
+                    </button>
+                </td>
+
+            </tr>
 
         </tbody>
 
-      </table>
+    </table>
 
-    </div>
+</div>
 
-  `);
+`, "supply-chain-finance.png");
+
 }
 
 
-/* =========================================
+/* =====================================================
    DISTRIBUTOR
-========================================= */
+===================================================== */
 
 function distributorPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="page-header">
+<div class="page-header">
 
-      <div>
+    <div>
+
         <h1>Distributor Profile</h1>
+
         <p>
-          Distributor financing and credit profile.
+            Distributor financing and credit profile.
         </p>
-      </div>
 
     </div>
 
+</div>
 
-    <div class="card profile">
 
-      <div class="profile-top">
+<div class="card profile">
+
+    <div class="profile-top">
 
         <div class="profile-icon">
-          <img
-            src="distributor-profile.png"
-            alt="Distributor profile"
-          >
+            ▥
         </div>
 
         <div>
-          <h2>AfriSnacks Ghana Distributor</h2>
 
-          <p>
-            Distributor ID: DIST-GHA-000489
-          </p>
+            <h2>
+                AfriSnacks Ghana Distributor
+            </h2>
 
-          <p class="orange" style="margin-top:10px">
-            ◯ Eligible for Financing
-          </p>
+            <p>
+                Distributor ID: DIST-GHA-000489
+            </p>
+
+            <p
+                class="orange"
+                style="margin-top:10px"
+            >
+                ● Eligible for Financing
+            </p>
+
         </div>
-
-      </div>
-
-
-      <div class="profile-stats">
-
-        <div class="profile-stat">
-          <span class="label">CREDIT LIMIT</span>
-          <strong>₦12M</strong>
-        </div>
-
-        <div class="profile-stat">
-          <span class="label">OUTSTANDING INVOICE</span>
-          <strong>₦4.8M</strong>
-        </div>
-
-        <div class="profile-stat">
-          <span class="label">FINANCING OFFER</span>
-          <strong class="orange">₦4.6M</strong>
-        </div>
-
-        <div class="profile-stat">
-          <span class="label">STATUS</span>
-          <strong class="green">Active</strong>
-        </div>
-
-      </div>
 
     </div>
 
 
-    <div class="card card-pad" style="margin-top:25px">
+    <div class="profile-stats">
 
-      <h3>Distributor Financing Profile</h3>
+        <div class="profile-stat">
 
-      <p style="margin:8px 0 20px">
-        Credit assessment and financing eligibility
-        at a glance.
-      </p>
+            <span class="label">
+                CREDIT LIMIT
+            </span>
 
-      <img
-        src="distributor-profile.png"
-        alt="AfriSnacks distributor financing profile"
-        class="dashboard-image section-image"
-      >
+            <strong>
+                ₦12M
+            </strong>
+
+        </div>
+
+
+        <div class="profile-stat">
+
+            <span class="label">
+                OUTSTANDING INVOICE
+            </span>
+
+            <strong>
+                ₦4.8M
+            </strong>
+
+        </div>
+
+
+        <div class="profile-stat">
+
+            <span class="label">
+                FINANCING OFFER
+            </span>
+
+            <strong class="orange">
+                ₦4.6M
+            </strong>
+
+        </div>
+
+
+        <div class="profile-stat">
+
+            <span class="label">
+                STATUS
+            </span>
+
+            <strong class="green">
+                Active
+            </strong>
+
+        </div>
 
     </div>
 
+</div>
 
-    <div style="margin-top:25px">
 
-      <button
+<div style="margin-top:25px">
+
+    <button
         class="btn"
         onclick="goTo('journey')"
-      >
+    >
         View Financing Journey →
-      </button>
+    </button>
 
-    </div>
+</div>
 
-  `);
+`, "distributor-profile.png");
+
 }
 
 
-/* =========================================
-   FINANCING JOURNEY
-========================================= */
+/* =====================================================
+   JOURNEY
+===================================================== */
 
 function journeyPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="page-header">
+<div class="page-header">
 
-      <div>
+    <div>
+
         <h1>Invoice Financing Journey</h1>
 
         <p>
-          End-to-end distributor financing workflow.
+            End-to-end distributor financing workflow.
         </p>
-      </div>
 
     </div>
 
-
-    <div class="card card-pad">
-
-      <h3>Financing Workflow</h3>
-
-      <p style="margin:8px 0 20px">
-        From distributor onboarding to settlement,
-        every step is visible in one journey.
-      </p>
-
-      <img
-        src="financing-journey.png"
-        alt="Invoice financing journey"
-        class="dashboard-image section-image"
-      >
-
-    </div>
+</div>
 
 
-    <div class="card workflow" style="margin-top:25px">
+<div class="card workflow">
 
-      <div class="step completed">
+    <div class="step completed">
 
-        <div class="step-circle">✓</div>
+        <div class="step-circle">
+            ✓
+        </div>
 
         <strong>Onboard</strong>
 
         <p>Completed</p>
 
-      </div>
+    </div>
 
 
-      <div class="step completed">
+    <div class="step completed">
 
-        <div class="step-circle">✓</div>
+        <div class="step-circle">
+            ✓
+        </div>
 
         <strong>Invoice Uploaded</strong>
 
         <p>Completed</p>
 
-      </div>
+    </div>
 
 
-      <div class="step completed">
+    <div class="step completed">
 
-        <div class="step-circle">✓</div>
+        <div class="step-circle">
+            ✓
+        </div>
 
         <strong>Invoice Approved</strong>
 
         <p>Completed</p>
 
-      </div>
+    </div>
 
 
-      <div class="step active">
+    <div class="step active">
 
-        <div class="step-circle">4</div>
+        <div class="step-circle">
+            4
+        </div>
 
         <strong>Financing Generated</strong>
 
         <p>Active</p>
 
-      </div>
+    </div>
 
 
-      <div class="step">
+    <div class="step">
 
-        <div class="step-circle">5</div>
+        <div class="step-circle">
+            5
+        </div>
 
         <strong>Settlement Completed</strong>
 
         <p>Pending</p>
 
-      </div>
-
     </div>
 
+</div>
 
-    <div style="margin-top:30px">
 
-      <button
+<div style="margin-top:30px">
+
+    <button
         class="btn"
-        onclick="goTo('impact')"
-      >
-        View Treasury Impact →
-      </button>
+        onclick="completeJourney()"
+    >
+        Complete Financing →
+    </button>
 
-    </div>
+</div>
 
-  `);
+`, "financing-journey.png");
+
 }
 
 
-/* =========================================
-   TREASURY IMPACT
-========================================= */
+/* =====================================================
+   IMPACT
+===================================================== */
 
 function impactPage() {
 
-  renderLayout(`
+renderLayout(`
 
-    <div class="page-header">
+<div class="page-header">
 
-      <div>
+    <div>
 
         <h1>
-          Regional Treasury Successfully Updated
+            Regional Treasury Successfully Updated
         </h1>
 
         <p>
-          Settlement and financing activity successfully
-          improved the regional treasury position.
+            Settlement and financing activity improved
+            the regional treasury position.
         </p>
 
-      </div>
+    </div>
 
-      <span class="success-badge">
+    <span class="success-badge">
         ✓ Update Complete
-      </span>
+    </span>
+
+</div>
+
+
+<div class="impact">
+
+    <div class="card impact-card">
+
+        <div class="label">
+            BEFORE
+        </div>
+
+        <div class="big-number">
+            $48.62M
+        </div>
+
+        <p>
+            Regional Liquidity
+        </p>
 
     </div>
 
 
-    <div class="impact">
-
-      <div class="card impact-card">
-
-        <div class="label">BEFORE</div>
-
-        <div class="big-number">
-          $48.62M
-        </div>
-
-        <p>
-          Regional Liquidity
-        </p>
-
-      </div>
-
-
-      <div class="impact-arrow">
+    <div class="impact-arrow">
 
         ↑
 
         <p
-          class="green"
-          style="font-size:15px"
+            class="green"
+            style="font-size:15px"
         >
-          +$330K
+            +$330K
         </p>
 
-      </div>
+    </div>
 
 
-      <div class="card impact-card">
+    <div class="card impact-card">
 
-        <div class="label">AFTER</div>
+        <div class="label">
+            AFTER
+        </div>
 
         <div class="big-number green">
-          $48.95M
+            $48.95M
         </div>
 
         <p>
-          Regional Liquidity
+            Regional Liquidity
         </p>
 
-      </div>
-
     </div>
 
-
-    <div class="card card-pad" style="margin-top:25px">
-
-      <h3>Treasury Impact</h3>
-
-      <p style="margin:8px 0 20px">
-        Visualising how integrated treasury activity
-        improves AfriSnacks' regional liquidity position.
-      </p>
-
-      <img
-        src="treasury-impact.png"
-        alt="AfriSnacks Treasury Impact"
-        class="dashboard-image section-image"
-      >
-
-    </div>
+</div>
 
 
-    <div class="two-col">
+<div
+    class="two-col"
+    style="margin-top:22px"
+>
 
-      <div class="card card-pad">
+    <div class="card card-pad">
 
         <h3>Liquidity Improvement</h3>
 
-        <div class="chart">
-          <div class="chart-line"></div>
+        <div
+            style="
+                height:240px;
+                margin-top:25px;
+                display:flex;
+                align-items:flex-end;
+                gap:25px;
+            "
+        >
+
+            <div
+                style="
+                    width:30%;
+                    height:55%;
+                    background:#143B62;
+                    border-radius:8px 8px 0 0;
+                "
+            ></div>
+
+            <div
+                style="
+                    width:30%;
+                    height:68%;
+                    background:#F58220;
+                    border-radius:8px 8px 0 0;
+                "
+            ></div>
+
+            <div
+                style="
+                    width:30%;
+                    height:88%;
+                    background:#31D17C;
+                    border-radius:8px 8px 0 0;
+                "
+            ></div>
+
         </div>
 
-      </div>
+    </div>
 
 
-      <div class="card card-pad">
+    <div class="card card-pad">
 
         <h3>Latest Transaction</h3>
 
         <div style="margin-top:25px">
 
-          <span class="orange">
-            ● LIVE UPDATE
-          </span>
+            <span class="orange">
+                ● LIVE UPDATE
+            </span>
 
-          <h2 style="margin-top:15px">
-            Kenya Collection Received
-          </h2>
+            <h2 style="margin-top:15px">
+                Kenya Collection Received
+            </h2>
 
-          <div
-            class="big-number green"
-            style="font-size:32px"
-          >
-            ₦1.8M
-          </div>
+            <div
+                class="big-number green"
+                style="font-size:32px"
+            >
+                ₦1.8M
+            </div>
 
-          <span class="success-badge">
-            ✓ Successfully Updated
-          </span>
+            <span class="success-badge">
+                ✓ Successfully Updated
+            </span>
 
         </div>
 
-      </div>
-
     </div>
 
+</div>
 
-    <div class="impact-visual">
+`, "treasury-impact.png");
 
-      <img
-        src="treasury-impact.png"
-        alt="Treasury impact visual"
-      >
-
-      <div class="card card-pad">
-
-        <h3>Executive Outcome</h3>
-
-        <p style="margin-top:15px">
-          Integrated cash management, PAPSS settlement
-          and supply chain finance create a connected
-          treasury ecosystem.
-        </p>
-
-        <div
-          class="green"
-          style="font-size:25px;font-weight:bold;margin-top:20px"
-        >
-          +$330K
-        </div>
-
-        <p>
-          Improvement in regional liquidity
-        </p>
-
-      </div>
-
-    </div>
-
-  `);
 }
 
 
-/* =========================================
+/* =====================================================
+   INTERACTIONS
+===================================================== */
+
+function openPayment() {
+
+    document
+        .getElementById("paymentModal")
+        .classList.add("show");
+
+}
+
+function closePayment() {
+
+    document
+        .getElementById("paymentModal")
+        .classList.remove("show");
+
+}
+
+function submitPayment() {
+
+    closePayment();
+
+    showToast(
+        "Payment submitted for approval."
+    );
+
+}
+
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 3000);
+
+}
+
+
+function approveInvoice(id) {
+
+    const row =
+        document.getElementById(id);
+
+    row.querySelector(
+        "td:nth-child(4)"
+    ).innerHTML = `
+        <span class="status approved">
+            Approved
+        </span>
+    `;
+
+    row.querySelector(
+        "td:nth-child(5)"
+    ).innerHTML = "✓";
+
+    showToast(
+        "Invoice approved successfully."
+    );
+
+}
+
+
+function completeJourney() {
+
+    showToast(
+        "Financing journey completed successfully."
+    );
+
+    setTimeout(() => {
+
+        goTo("impact");
+
+    }, 900);
+
+}
+
+
+function changeChart(button, period) {
+
+    document
+        .querySelectorAll(".chart-tab")
+        .forEach(tab => {
+
+            tab.classList.remove("active");
+
+        });
+
+    button.classList.add("active");
+
+    if (period === "month") {
+
+        showToast(
+            "30-day liquidity forecast selected."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CHART TOOLTIP
+===================================================== */
+
+function showTooltip(event) {
+
+    const tooltip =
+        document.getElementById("chartTooltip");
+
+    if (!tooltip) return;
+
+    tooltip.innerHTML =
+        event.target.dataset.value;
+
+    tooltip.style.display = "block";
+
+    tooltip.style.left =
+        event.offsetX + 20 + "px";
+
+    tooltip.style.top =
+        event.offsetY + "px";
+
+}
+
+
+function hideTooltip() {
+
+    const tooltip =
+        document.getElementById("chartTooltip");
+
+    if (tooltip) {
+
+        tooltip.style.display = "none";
+
+    }
+
+}
+
+
+/* =====================================================
    RENDER
-========================================= */
+===================================================== */
 
 function render() {
 
-  if (currentPage === "mission") {
-    missionPage();
-  }
+    if (currentPage === "mission") {
+        missionPage();
+    }
 
-  if (currentPage === "cash") {
-    cashPage();
-  }
+    if (currentPage === "cash") {
+        cashPage();
+    }
 
-  if (currentPage === "papss") {
-    papssPage();
-  }
+    if (currentPage === "papss") {
+        papssPage();
+    }
 
-  if (currentPage === "supply") {
-    supplyPage();
-  }
+    if (currentPage === "supply") {
+        supplyPage();
+    }
 
-  if (currentPage === "distributor") {
-    distributorPage();
-  }
+    if (currentPage === "distributor") {
+        distributorPage();
+    }
 
-  if (currentPage === "journey") {
-    journeyPage();
-  }
+    if (currentPage === "journey") {
+        journeyPage();
+    }
 
-  if (currentPage === "impact") {
-    impactPage();
-  }
+    if (currentPage === "impact") {
+        impactPage();
+    }
 
 }
+
 
 render();
 
@@ -2019,4 +2517,3 @@ render();
 
 </body>
 </html>
-```
