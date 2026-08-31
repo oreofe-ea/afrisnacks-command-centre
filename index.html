@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AfriSnacks Digital Command Centre</title>
+
+<style>
+
+/* =========================================
+   AFRISNACKS DIGITAL COMMAND CENTRE
+   DESIGN SYSTEM
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --midnight: #041322;
+  --royal: #0B2344;
+  --deep: #143B62;
+  --orange: #F58220;
+  --green: #22C55E;
+  --white: #FFFFFF;
+  --slate: #CBD5E1;
+  --muted: #94A3B8;
+  --dark: #020B16;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--midnight);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* APP */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 260px;
+  background: var(--royal);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 18px;
+  position: fixed;
+  height: 100vh;
+}
+
+.brand {
+  margin-bottom: 45px;
+}
+
+.brand h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.brand p {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-btn {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--slate);
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.nav-btn.active {
+  background: var(--deep);
+  color: var(--white);
+  border-left: 3px solid var(--orange);
+}
+
+.system-status {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.04);
+  padding: 15px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.system-status strong {
+  color: var(--white);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* MAIN */
+
+.main {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 75px;
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(4,19,34,0.85);
+}
+
+.topbar-title {
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--midnight);
+  font-weight: bold;
+}
+
+.content {
+  padding: 40px;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* BUTTON */
+
+.btn {
+  background: var(--orange);
+  color: var(--midnight);
+  border: none;
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* CARD */
+
+.card {
+  background: rgba(11,35,68,0.75);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(2,11,22,0.3);
+}
+
+.card-pad {
+  padding: 24px;
+}
+
+/* GRIDS */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.hero {
+  padding: 45px;
+  min-height: 300px;
+  background:
+    radial-gradient(circle at top right, rgba(20,59,98,0.8), transparent 45%),
+    var(--royal);
+}
+
+.hero h1 {
+  font-size: 46px;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+.hero p {
+  font-size: 17px;
+}
+
+.eyebrow {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.liquidity {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.big-number {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.green {
+  color: var(--green);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.kpi {
+  padding: 22px;
+}
+
+.kpi .value {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.feature {
+  padding: 30px;
+}
+
+.feature-icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(245,130,32,0.12);
+  border: 1px solid rgba(245,130,32,0.4);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.feature h2 {
+  margin-bottom: 12px;
+}
+
+.feature .btn {
+  margin-top: 25px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  font-size: 11px;
+  color: var(--slate);
+  margin: 15px 5px 0 0;
+}
+
+/* PAGE HEADER */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+/* BALANCES */
+
+.balance-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 80px;
+  gap: 15px;
+  align-items: center;
+  margin: 20px 0;
+  color: var(--slate);
+}
+
+.bar {
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--orange);
+  border-radius: 20px;
+}
+
+/* CHART */
+
+.chart {
+  height: 280px;
+  margin-top: 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(transparent 95%, rgba(255,255,255,0.05) 95%);
+}
+
+.chart-line {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 20%;
+  height: 3px;
+  background: var(--green);
+  transform: rotate(-4deg);
+  box-shadow: 0 0 15px rgba(34,197,94,0.5);
+}
+
+/* FEED */
+
+.feed-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  color: var(--slate);
+}
+
+/* TABLE */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th {
+  text-align: left;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 14px;
+}
+
+.table td {
+  padding: 15px 14px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  color: var(--slate);
+  font-size: 13px;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.status.pending {
+  color: var(--orange);
+  background: rgba(245,130,32,0.1);
+}
+
+.status.approved {
+  color: var(--green);
+  background: rgba(34,197,94,0.1);
+}
+
+/* SETTLEMENT */
+
+.settlement {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.party {
+  padding: 25px;
+  text-align: center;
+}
+
+.route-center {
+  text-align: center;
+}
+
+.payment-route {
+  height: 4px;
+  background: var(--orange);
+  margin: 20px 0;
+  box-shadow: 0 0 20px rgba(245,130,32,0.7);
+}
+
+.success-badge {
+  display: inline-block;
+  background: rgba(34,197,94,0.12);
+  color: var(--green);
+  padding: 9px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* PROFILE */
+
+.profile {
+  padding: 35px;
+}
+
+.profile-top {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  background: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.profile-stat {
+  padding: 20px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+}
+
+.profile-stat strong {
+  font-size: 20px;
+  display: block;
+  margin-top: 8px;
+}
+
+/* WORKFLOW */
+
+.workflow {
+  padding: 45px 25px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.workflow::before {
+  content: "";
+  position: absolute;
+  top: 70px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+}
+
+.step {
+  width: 18%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.step-circle {
+  width: 48px;
+  height: 48px;
+  margin: auto auto 15px;
+  border-radius: 50%;
+  background: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+.step.completed .step-circle {
+  background: var(--green);
+  color: var(--midnight);
+}
+
+.step.active .step-circle {
+  background: var(--orange);
+  color: var(--midnight);
+}
+
+/* IMPACT */
+
+.impact {
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.impact-card {
+  padding: 35px;
+  text-align: center;
+}
+
+.impact-arrow {
+  text-align: center;
+  font-size: 55px;
+  color: var(--green);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .main {
+    margin-left: 210px;
+    width: calc(100% - 210px);
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-grid,
+  .feature-grid,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+/* =========================================
+   AFRISNACKS PROTOTYPE
+========================================= */
+
+const app = document.getElementById("app");
+
+const pages = {
+  mission: "Mission Control",
+  cash: "Cash Management",
+  papss: "PAPSS Settlement",
+  supply: "Supply Chain Finance",
+  distributor: "Distributor Profile",
+  journey: "Financing Journey",
+  impact: "Treasury Impact"
+};
+
+let currentPage = "mission";
+
+function renderLayout(content) {
+
+  app.innerHTML = `
+
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+        <h2>AfriSnacks</h2>
+        <p>Digital Command Centre</p>
+      </div>
+
+      ${Object.entries(pages).map(([id, name]) => `
+        <button
+          class="nav-btn ${currentPage === id ? "active" : ""}"
+          onclick="goTo('${id}')"
+        >
+          ${name}
+        </button>
+      `).join("")}
+
+      <div class="system-status">
+        <strong>● System Status</strong>
+        <span class="green">All Systems Operational</span>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <div class="topbar-title">
+          AfriSnacks Digital Command Centre
+        </div>
+
+        <div class="user">
+          <span>Executive Treasury</span>
+          <div class="avatar">AT</div>
+        </div>
+
+      </header>
+
+      <section class="content">
+        ${content}
+      </section>
+
+    </main>
+
+  </div>
+  `;
+}
+
+function goTo(page) {
+  currentPage = page;
+  render();
+}
+
+
+/* MISSION CONTROL */
+
+function missionPage() {
+
+  renderLayout(`
+
+    <div class="hero-grid">
+
+      <div class="card hero">
+
+        <div class="eyebrow">
+          AFRICA-WIDE TREASURY VISIBILITY
+        </div>
+
+        <h1>
+          Run Africa from One Command Centre.
+        </h1>
+
+        <p>
+          Real-time visibility. Smarter liquidity.
+          Stronger supply chains.
+        </p>
+
+        <button
+          class="btn"
+          style="margin-top:25px"
+          onclick="goTo('cash')"
+        >
+          Explore Treasury →
+        </button>
+
+      </div>
+
+      <div class="card liquidity">
+
+        <div class="label">TOTAL LIQUIDITY</div>
+
+        <div class="big-number green">
+          $48.62M
+        </div>
+
+        <p>
+          Available across all regional accounts
+        </p>
+
+        <p class="green" style="margin-top:15px">
+          ↑ 3.61% vs yesterday
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="kpi-grid">
+
+      <div class="card kpi">
+        <div class="label">COLLECTIONS TODAY</div>
+        <div class="value">₦18.2M</div>
+        <span class="green">↑ 12.4%</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">PAPSS SETTLEMENT</div>
+        <div class="value green">Active</div>
+        <span>Real-time settlement</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">DISTRIBUTOR NETWORK</div>
+        <div class="value">1,200</div>
+        <span>Active distributors</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">CURRENCIES</div>
+        <div class="value">12</div>
+        <span>Supported currencies</span>
+      </div>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="card feature">
+
+        <div class="feature-icon">▣</div>
+
+        <h2>Cash Management</h2>
+
+        <p>
+          Optimise liquidity, collections
+          and regional cash positions.
+        </p>
+
+        <span class="tag">Liquidity</span>
+        <span class="tag">Collections</span>
+        <span class="tag">Forecasting</span>
+
+        <br>
+
+        <button
+          class="btn"
+          onclick="goTo('cash')"
+        >
+          Open Cash Management →
+        </button>
+
+      </div>
+
+
+      <div class="card feature">
+
+        <div class="feature-icon">▱</div>
+
+        <h2>Supply Chain Finance</h2>
+
+        <p>
+          Empower distributors and unlock
+          working capital across Africa.
+        </p>
+
+        <span class="tag">Invoices</span>
+        <span class="tag">Financing</span>
+        <span class="tag">Settlement</span>
+
+        <br>
+
+        <button
+          class="btn"
+          onclick="goTo('supply')"
+        >
+          Open Supply Chain Finance →
+        </button>
+
+      </div>
+
+    </div>
+
+  `);
+}
+
+
+/* CASH MANAGEMENT */
+
+function cashPage() {
+
+  renderLayout(`
+
+    <div class="page-header">
+
+      <div>
+        <h1>Cash Management</h1>
+        <p>
+          Real-time liquidity and collections intelligence.
+        </p>
+      </div>
+
+      <button class="btn">Create Payment</button>
+
+    </div>
+
+
+    <div class="kpi-grid">
+
+      <div class="card kpi">
+        <div class="label">LIQUIDITY</div>
+        <div class="value green">$48.62M</div>
+        <span class="green">↑ 3.61%</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">COLLECTIONS</div>
+        <div class="value">₦18.2M</div>
+        <span class="green">↑ 12.4%</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">CASH CONCENTRATION</div>
+        <div class="value">82%</div>
+        <span class="green">↑ 5%</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">REGIONS</div>
+        <div class="value">5</div>
+        <span>Active markets</span>
+      </div>
+
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="card card-pad">
+
+        <h3>Liquidity Forecast</h3>
+
+        <div class="chart">
+          <div class="chart-line"></div>
+        </div>
+
+      </div>
+
+
+      <div class="card card-pad">
+
+        <h3>Regional Balances</h3>
+
+        <div class="balance-row">
+          <span>Nigeria</span>
+          <div class="bar"><span style="width:82%"></span></div>
+          <strong>$24.3M</strong>
+        </div>
+
+        <div class="balance-row">
+          <span>Ghana</span>
+          <div class="bar"><span style="width:60%"></span></div>
+          <strong>$9.8M</strong>
+        </div>
+
+        <div class="balance-row">
+          <span>Kenya</span>
+          <div class="bar"><span style="width:48%"></span></div>
+          <strong>$7.1M</strong>
+        </div>
+
+        <div class="balance-row">
+          <span>Rwanda</span>
+          <div class="bar"><span style="width:28%"></span></div>
+          <strong>$4.5M</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  `);
+}
+
+
+/* PAPSS */
+
+function papssPage() {
+
+  renderLayout(`
+
+    <div class="page-header">
+
+      <div>
+        <h1>PAPSS Settlement</h1>
+        <p>
+          Real-time cross-border treasury settlement.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="card settlement">
+
+      <div class="card party">
+        <h2>🇰🇪</h2>
+        <h3>Kenya Treasury</h3>
+        <p>Regional treasury account</p>
+      </div>
+
+
+      <div class="route-center">
+
+        <div class="big-number">$250,000</div>
+
+        <div class="payment-route"></div>
+
+        <span class="success-badge">
+          ✓ Settlement Successful
+        </span>
+
+        <p style="margin-top:15px">
+          PAPSS Cross-Border Route
+        </p>
+
+      </div>
+
+
+      <div class="card party">
+        <h2>🇬🇭</h2>
+        <h3>Ghana Treasury</h3>
+        <p>Regional treasury account</p>
+      </div>
+
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="card card-pad">
+
+        <h3>Compliance Timeline</h3>
+
+        <div class="feed-item">
+          <span>✓ Payment Initiated</span>
+          <span class="green">Completed</span>
+        </div>
+
+        <div class="feed-item">
+          <span>✓ Compliance Screening</span>
+          <span class="green">Passed</span>
+        </div>
+
+        <div class="feed-item">
+          <span>✓ PAPSS Routing</span>
+          <span class="green">Completed</span>
+        </div>
+
+        <div class="feed-item">
+          <span>✓ Settlement Completed</span>
+          <span class="green">Successful</span>
+        </div>
+
+      </div>
+
+
+      <div class="card card-pad">
+
+        <h3>Settlement Summary</h3>
+
+        <p class="label">AMOUNT</p>
+        <div class="big-number">$250,000</div>
+
+        <p class="label">STATUS</p>
+        <div class="green">Successfully Settled</div>
+
+      </div>
+
+    </div>
+
+  `);
+}
+
+
+/* SUPPLY CHAIN */
+
+function supplyPage() {
+
+  renderLayout(`
+
+    <div class="page-header">
+
+      <div>
+        <h1>Supply Chain Finance</h1>
+        <p>
+          Finance distributors and optimise working capital.
+        </p>
+      </div>
+
+      <button
+        class="btn"
+        onclick="goTo('distributor')"
+      >
+        View Distributor
+      </button>
+
+    </div>
+
+
+    <div class="kpi-grid">
+
+      <div class="card kpi">
+        <div class="label">ACTIVE DISTRIBUTORS</div>
+        <div class="value">1,200</div>
+        <span class="green">↑ 4%</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">PENDING INVOICES</div>
+        <div class="value orange">₦28.6M</div>
+        <span>Awaiting approval</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">FINANCING UTILISATION</div>
+        <div class="value">68%</div>
+        <span class="green">↑ 8%</span>
+      </div>
+
+      <div class="card kpi">
+        <div class="label">SETTLEMENT SUCCESS</div>
+        <div class="value green">97.8%</div>
+        <span>Regional average</span>
+      </div>
+
+    </div>
+
+
+    <div class="card card-pad">
+
+      <h3>Invoice Queue</h3>
+
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th>Invoice ID</th>
+            <th>Distributor</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>INV-00482</td>
+            <td>AfriSnacks Ghana</td>
+            <td>₦4.8M</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+
+          <tr>
+            <td>INV-00483</td>
+            <td>Nigeria Distributor</td>
+            <td>₦2.4M</td>
+            <td><span class="status approved">Approved</span></td>
+          </tr>
+
+          <tr>
+            <td>INV-00484</td>
+            <td>Kenya Retail</td>
+            <td>₦3.1M</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  `);
+}
+
+
+/* DISTRIBUTOR */
+
+function distributorPage() {
+
+  renderLayout(`
+
+    <div class="page-header">
+
+      <div>
+        <h1>Distributor Profile</h1>
+        <p>
+          Distributor financing and credit profile.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="card profile">
+
+      <div class="profile-top">
+
+        <div class="profile-icon">▥</div>
+
+        <div>
+          <h2>AfriSnacks Ghana Distributor</h2>
+          <p>Distributor ID: DIST-GHA-000489</p>
+
+          <p class="orange" style="margin-top:10px">
+            ◯ Eligible for Financing
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="profile-stats">
+
+        <div class="profile-stat">
+          <span class="label">CREDIT LIMIT</span>
+          <strong>₦12M</strong>
+        </div>
+
+        <div class="profile-stat">
+          <span class="label">OUTSTANDING INVOICE</span>
+          <strong>₦4.8M</strong>
+        </div>
+
+        <div class="profile-stat">
+          <span class="label">FINANCING OFFER</span>
+          <strong class="orange">₦4.6M</strong>
+        </div>
+
+        <div class="profile-stat">
+          <span class="label">STATUS</span>
+          <strong class="green">Active</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div style="margin-top:25px">
+
+      <button
+        class="btn"
+        onclick="goTo('journey')"
+      >
+        View Financing Journey →
+      </button>
+
+    </div>
+
+  `);
+}
+
+
+/* JOURNEY */
+
+function journeyPage() {
+
+  renderLayout(`
+
+    <div class="page-header">
+
+      <div>
+        <h1>Invoice Financing Journey</h1>
+        <p>
+          End-to-end distributor financing workflow.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="card workflow">
+
+      <div class="step completed">
+        <div class="step-circle">✓</div>
+        <strong>Onboard</strong>
+        <p>Completed</p>
+      </div>
+
+      <div class="step completed">
+        <div class="step-circle">✓</div>
+        <strong>Invoice Uploaded</strong>
+        <p>Completed</p>
+      </div>
+
+      <div class="step completed">
+        <div class="step-circle">✓</div>
+        <strong>Invoice Approved</strong>
+        <p>Completed</p>
+      </div>
+
+      <div class="step active">
+        <div class="step-circle">4</div>
+        <strong>Financing Generated</strong>
+        <p>Active</p>
+      </div>
+
+      <div class="step">
+        <div class="step-circle">5</div>
+        <strong>Settlement Completed</strong>
+        <p>Pending</p>
+      </div>
+
+    </div>
+
+
+    <div style="margin-top:30px">
+
+      <button
+        class="btn"
+        onclick="goTo('impact')"
+      >
+        View Treasury Impact →
+      </button>
+
+    </div>
+
+  `);
+}
+
+
+/* IMPACT */
+
+function impactPage() {
+
+  renderLayout(`
+
+    <div class="page-header">
+
+      <div>
+        <h1>
+          Regional Treasury Successfully Updated
+        </h1>
+
+        <p>
+          Settlement and financing activity successfully
+          improved the regional treasury position.
+        </p>
+      </div>
+
+      <span class="success-badge">
+        ✓ Update Complete
+      </span>
+
+    </div>
+
+
+    <div class="impact">
+
+      <div class="card impact-card">
+
+        <div class="label">BEFORE</div>
+
+        <div class="big-number">
+          $48.62M
+        </div>
+
+        <p>Regional Liquidity</p>
+
+      </div>
+
+
+      <div class="impact-arrow">
+        ↑
+        <p class="green" style="font-size:15px">
+          +$330K
+        </p>
+      </div>
+
+
+      <div class="card impact-card">
+
+        <div class="label">AFTER</div>
+
+        <div class="big-number green">
+          $48.95M
+        </div>
+
+        <p>Regional Liquidity</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="two-col">
+
+      <div class="card card-pad">
+
+        <h3>Liquidity Improvement</h3>
+
+        <div class="chart">
+          <div class="chart-line"></div>
+        </div>
+
+      </div>
+
+
+      <div class="card card-pad">
+
+        <h3>Latest Transaction</h3>
+
+        <div style="margin-top:25px">
+
+          <span class="orange">
+            ● LIVE UPDATE
+          </span>
+
+          <h2 style="margin-top:15px">
+            Kenya Collection Received
+          </h2>
+
+          <div
+            class="big-number green"
+            style="font-size:32px"
+          >
+            ₦1.8M
+          </div>
+
+          <span class="success-badge">
+            ✓ Successfully Updated
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `);
+}
+
+
+/* RENDER */
+
+function render() {
+
+  if (currentPage === "mission") {
+    missionPage();
+  }
+
+  if (currentPage === "cash") {
+    cashPage();
+  }
+
+  if (currentPage === "papss") {
+    papssPage();
+  }
+
+  if (currentPage === "supply") {
+    supplyPage();
+  }
+
+  if (currentPage === "distributor") {
+    distributorPage();
+  }
+
+  if (currentPage === "journey") {
+    journeyPage();
+  }
+
+  if (currentPage === "impact") {
+    impactPage();
+  }
+
+}
+
+render();
+
+</script>
+
+</body>
+</html>
