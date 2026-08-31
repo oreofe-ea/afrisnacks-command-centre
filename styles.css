@@ -1,0 +1,60 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+background:#041322;
+font-family:Inter,sans-serif;
+color:white;
+}
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 6%;
+background:#07192D;
+border-bottom:1px solid rgba(255,255,255,.08);
+position:sticky;
+top:0;
+}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-circle{
+width:48px;height:48px;border-radius:50%;
+background:#F58220;
+display:flex;align-items:center;justify-content:center;
+font-weight:800;font-size:20px;
+}
+.logo h1{font-size:18px}
+.logo p{font-size:12px;color:#9DB3C8}
+nav button{
+background:none;border:none;color:#CBD5E1;
+margin-left:24px;font-weight:600;cursor:pointer;
+}
+.page{display:none;padding:50px 6%}
+.page.active{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.glass{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(16px);
+border-radius:24px;
+padding:24px;
+}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center}
+.eyebrow{color:#F58220;letter-spacing:.25em;font-size:12px;font-weight:700}
+.hero h2{font-size:56px;line-height:1.1;margin:16px 0}
+.hero-text{color:#BFD0DF;line-height:1.8;max-width:540px}
+.hero-buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+button.orange{background:#F58220;color:white;border:none;padding:14px 22px;border-radius:12px;font-weight:700;cursor:pointer}
+button.outline{background:none;border:1px solid #F58220;color:#F58220;padding:14px 22px;border-radius:12px;cursor:pointer}
+button.small{padding:10px 16px}
+.hero-card span{color:#94A3B8;text-transform:uppercase;font-size:12px}
+.hero-card h1{font-size:48px;color:#33D17A;margin:12px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin:40px 0}
+.stat p{color:#94A3B8;font-size:13px}.stat h3{margin-top:10px;font-size:30px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.map-card{margin-top:20px}
+.map{position:relative;height:320px;background:#081B32;border-radius:20px;overflow:hidden}
+.africa{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font-size:260px;opacity:.08}
+.country{position:absolute;width:36px;height:36px;border-radius:50%;background:#20466C;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid #5EA2E5;transition:.4s}
+.country.live{background:#F58220;transform:scale(1.2);box-shadow:0 0 16px #F58220}
+.route{position:absolute;height:4px;width:32%;left:34%;top:60%;background:#F58220;opacity:.2;transform:rotate(-8deg);transition:1s}.route.live{opacity:1;box-shadow:0 0 12px #F58220}
+.treasury-grid,.finance-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:30px}
+.big-card h1{font-size:56px;color:#33D17A;margin:16px 0}.progress{margin-top:22px;height:8px;background:#19324C;border-radius:999px;overflow:hidden}.fill{width:0%;height:100%;background:linear-gradient(90deg,#33D17A,#F58220);transition:1s}.payment-card{margin-top:28px}.payment-flow{text-align:center;font-size:30px;line-height:1.8;margin:25px 0}.live{color:#33D17A;font-size:12px;background:#123B2B;padding:6px 12px;border-radius:999px}.avatar{width:70px;height:70px;border-radius:50%;background:#F58220;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;margin:20px 0}.eligible{margin-top:20px;padding:12px;background:#123B2B;color:#33D17A;border-radius:12px;font-weight:600}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0}.step{background:#173453;padding:10px;border-radius:10px;text-align:center;font-size:12px;color:#8EA7C0}.step.active{background:#F58220;color:white;font-weight:700}.back{background:none;border:none;color:#F58220;font-size:14px;cursor:pointer;margin-bottom:20px}.toast{position:fixed;top:20px;right:20px;background:#133A61;padding:16px 18px;border-left:4px solid #F58220;border-radius:14px;display:none;max-width:280px;z-index:999}@media(max-width:900px){.hero,.treasury-grid,.finance-grid{grid-template-columns:1fr}.hero h2{font-size:40px}.steps{grid-template-columns:1fr}}

@@ -1,0 +1,10 @@
+const pages=document.querySelectorAll('.page');
+function showPage(id){pages.forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function notify(msg){const t=document.getElementById('toast');t.innerHTML=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
+function receiveCollection(){document.getElementById('heroLiquidity').innerHTML='$48.95M';document.getElementById('treasuryLiquidity').innerHTML='$48.95M';document.getElementById('bar').style.width='100%';notify('💰 ₦18.2M Distributor Collection received. Treasury updated.');}
+function papssSettlement(){notify('🌍 PAPSS settlement complete: Kenya → Ghana ($250,000).');}
+function simulateMap(){['ng','gh','ke','rw','ug'].forEach((c,i)=>{setTimeout(()=>document.getElementById(c).classList.add('live'),i*350);});setTimeout(()=>document.getElementById('route').classList.add('live'),1400);notify('🌍 Live payment flowing across Africa.');}
+const journey=[['Distributor Onboarded','KYC completed and credit profile activated.'],['Invoice Uploaded','Invoice AF-10482 uploaded for ₦4.8 Million.'],['Invoice Approved','Purchase Order matched successfully.'],['Financing Offer Generated','₦4.6 Million financing approved instantly.'],['Settlement Completed','Supplier paid and treasury reconciled automatically.']];
+let stage=0;
+function nextJourney(){if(stage<4)stage++;document.getElementById('journeyTitle').innerHTML=journey[stage][0];document.getElementById('journeyText').innerHTML=journey[stage][1];document.getElementById('stageLabel').innerHTML=`Stage ${stage+1}/5`;document.querySelectorAll('.step').forEach((s,i)=>{if(i<=stage)s.classList.add('active');});notify('📄 '+journey[stage][0]);if(stage===4){document.getElementById('heroLiquidity').innerHTML='$48.95M';setTimeout(()=>showPage('dashboard'),1200);}}
+window.onload=()=>{setTimeout(()=>notify('👋 Welcome to AfriSnacks Digital Command Centre'),1000);}
