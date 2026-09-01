@@ -2,398 +2,44 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Access Bank Business Solutions for FMCG</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Access Bank Business Solutions | AfriSnacks</title>
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-:root{
-  --navy:#071B33;
-  --navy2:#0D2A4D;
-  --orange:#F58220;
-  --green:#167A43;
-  --light:#F5F7FA;
-  --text:#132238;
-  --muted:#667085;
-  --white:#FFFFFF;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,#f4f6fa,#e8edf5);
-  color:var(--text);
-  min-height:100vh;
-}
-
-header{
-  background:white;
-  padding:22px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid #e4e7ec;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:25px;
-  font-weight:800;
-  color:var(--navy);
-}
-
-.logo-mark{
-  color:var(--orange);
-  font-size:34px;
-}
-
-.hero{
-  max-width:1250px;
-  margin:auto;
-  padding:80px 30px 60px;
-  text-align:center;
-}
-
-.eyebrow{
-  color:var(--orange);
-  font-size:13px;
-  font-weight:bold;
-  letter-spacing:1.5px;
-  margin-bottom:18px;
-}
-
-h1{
-  font-size:52px;
-  color:var(--navy);
-  margin-bottom:20px;
-}
-
-.hero p{
-  max-width:720px;
-  margin:auto;
-  color:var(--muted);
-  line-height:1.7;
-  font-size:19px;
-}
-
-.solution-grid{
-  max-width:1200px;
-  margin:20px auto 80px;
-  padding:0 30px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
-
-.solution-card{
-  background:white;
-  border-radius:22px;
-  padding:42px;
-  box-shadow:0 20px 50px rgba(15,35,60,.12);
-  transition:.3s;
-  border:1px solid #e8ebf0;
-}
-
-.solution-card:hover{
-  transform:translateY(-8px);
-}
-
-.treasury-card{
-  border-top:7px solid var(--navy);
-}
-
-.partner-card{
-  border-top:7px solid var(--green);
-}
-
-.icon{
-  width:65px;
-  height:65px;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-  margin-bottom:25px;
-}
-
-.treasury-card .icon{
-  background:#eaf0f8;
-}
-
-.partner-card .icon{
-  background:#eaf5ed;
-}
-
-.solution-card h2{
-  font-size:27px;
-  margin-bottom:14px;
-}
-
-.solution-card p{
-  color:var(--muted);
-  line-height:1.7;
-  min-height:80px;
-}
-
-.feature-list{
-  list-style:none;
-  margin:25px 0;
-}
-
-.feature-list li{
-  padding:10px 0;
-  border-bottom:1px solid #eef0f3;
-  color:#405064;
-}
-
-.feature-list li::before{
-  content:"✓";
-  color:var(--green);
-  font-weight:bold;
-  margin-right:10px;
-}
-
-.btn{
-  display:inline-block;
-  width:100%;
-  padding:16px;
-  text-align:center;
-  text-decoration:none;
-  border-radius:10px;
-  font-weight:bold;
-  transition:.2s;
-}
-
-.treasury-btn{
-  background:var(--navy);
-  color:white;
-}
-
-.partner-btn{
-  background:var(--green);
-  color:white;
-}
-
-.btn:hover{
-  opacity:.9;
-}
-
-.integration{
-  max-width:1000px;
-  margin:0 auto 80px;
-  padding:35px;
-  background:var(--navy);
-  border-radius:22px;
-  color:white;
-  text-align:center;
-}
-
-.integration h2{
-  margin-bottom:12px;
-}
-
-.integration p{
-  color:#bdc9d8;
-  line-height:1.7;
-}
-
-.flow{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  margin-top:30px;
-}
-
-.flow-box{
-  padding:18px 25px;
-  background:rgba(255,255,255,.08);
-  border-radius:12px;
-  min-width:210px;
-}
-
-.arrow{
-  color:var(--orange);
-  font-size:28px;
-}
-
-footer{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
-}
-
-@media(max-width:800px){
-
-  header{
-    padding:18px 25px;
-  }
-
-  .logo{
-    font-size:19px;
-  }
-
-  .hero{
-    padding:60px 22px 35px;
-  }
-
-  h1{
-    font-size:36px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .solution-grid{
-    grid-template-columns:1fr;
-    padding:0 20px;
-  }
-
-  .solution-card{
-    padding:30px;
-  }
-
-  .flow{
-    flex-direction:column;
-  }
-
-  .arrow{
-    transform:rotate(90deg);
-  }
-
-  .integration{
-    margin:0 20px 50px;
-  }
-}
+:root{--navy:#002A5C;--navy2:#001C3D;--orange:#F58220;--light:#F5F7FA;--ink:#10233F;--green:#2E7D32;--white:#fff;--line:#DCE3EC}
+*{box-sizing:border-box;margin:0}body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#f7f9fc,#e9eef5);color:var(--ink)}
+header{height:78px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:14px}.access-mark{width:44px;height:32px;position:relative}.access-mark:before,.access-mark:after{content:"";position:absolute;transform:rotate(45deg);border:4px solid var(--orange)}.access-mark:before{width:22px;height:22px;left:2px;top:3px}.access-mark:after{width:12px;height:12px;left:11px;top:8px;background:white}
+.brand strong{font-size:18px;color:var(--navy)}.brand span{font-size:12px;color:#667085;display:block;margin-top:3px}
+.hero{padding:70px 7% 45px;text-align:center;background:radial-gradient(circle at top right,#163e74 0,transparent 35%),var(--navy2);color:white}.eyebrow{color:#FFB36B;font-size:12px;font-weight:bold;letter-spacing:1.8px}.hero h1{font-size:clamp(34px,6vw,60px);margin:18px auto;max-width:900px}.hero p{max-width:700px;margin:auto;color:#CFD8E6;font-size:18px;line-height:1.6}
+.solutions{max-width:1250px;margin:-5px auto 60px;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.solution{background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 45px rgba(0,28,61,.12)}.solution-top{height:150px;padding:30px;color:white;background:linear-gradient(135deg,var(--navy),#174b86)}.solution-top.distributor{background:linear-gradient(135deg,#063D2B,#0B6B4B)}.solution h2{font-size:28px}.solution-top p{margin-top:10px;color:#D9E6F7}.solution-body{padding:30px}.solution-body p{color:#667085;line-height:1.65;min-height:80px}.features{margin:22px 0;display:grid;gap:10px;color:#334155;font-size:14px}.features div:before{content:"✓";color:var(--orange);font-weight:bold;margin-right:9px}.solution-top.distributor~.solution-body .features div:before{color:#2E7D32}.btn{display:inline-block;background:var(--orange);color:#10233F;text-decoration:none;padding:14px 20px;border-radius:9px;font-weight:bold}.footer{text-align:center;padding:25px;color:#667085;font-size:13px}
+@media(max-width:760px){header{padding:0 20px}.brand strong{font-size:15px}.hero{padding:55px 22px 38px}.solutions{grid-template-columns:1fr;margin:0 auto 40px;padding:22px}.solution-body p{min-height:0}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="logo">
-    <span class="logo-mark">◇</span>
-    ACCESS BANK
-  </div>
-
-  <strong>Business Solutions for FMCG</strong>
+  <div class="brand"><div class="access-mark" aria-label="Access Bank mark"></div><div><strong>Business Solutions for FMCG</strong><span>AfriSnacks Prototype</span></div></div>
+  <div style="font-size:12px;color:#667085">Unified Treasury & Digital Supply Chain Finance</div>
 </header>
-
-
 <section class="hero">
-
-  <div class="eyebrow">
-    ONE INTEGRATED FINANCIAL ECOSYSTEM
-  </div>
-
-  <h1>
-    Business Solutions Built for the FMCG Value Chain
-  </h1>
-
-  <p>
-    A connected digital solution combining centralised treasury
-    management for AfriSnacks with accessible supply chain finance
-    for distributors and retailers.
-  </p>
-
+  <div class="eyebrow">ACCESS BANK × AFRISNACKS</div>
+  <h1>Two connected experiences. Two different users.</h1>
+  <p>The AfriSnacks treasury team manages enterprise liquidity and regional cash. Distributors and retailers access financing, orders and repayment tools through their own secure portal.</p>
 </section>
-
-
-<section class="solution-grid">
-
-  <div class="solution-card treasury-card">
-
-    <div class="icon">🏢</div>
-
-    <h2>AfriSnacks Treasury Command Centre</h2>
-
-    <p>
-      A private corporate banking platform for AfriSnacks'
-      treasury and finance teams.
-    </p>
-
-    <ul class="feature-list">
-      <li>Centralised Cash Management</li>
-      <li>Collections and Liquidity Visibility</li>
-      <li>7-Day and 30-Day Forecasting</li>
-      <li>PAPSS Cross-Border Settlement</li>
-      <li>Supply Chain Finance Monitoring</li>
-    </ul>
-
-    <a href="treasury.html" class="btn treasury-btn">
-      ENTER TREASURY PLATFORM →
-    </a>
-
-  </div>
-
-
-  <div class="solution-card partner-card">
-
-    <div class="icon">🤝</div>
-
-    <h2>Supply Chain Partner Portal</h2>
-
-    <p>
-      A secure self-service platform for distributors and retailers
-      to access financing and manage their business activity.
-    </p>
-
-    <ul class="feature-list">
-      <li>View Credit Facilities</li>
-      <li>Request Financing</li>
-      <li>Manage Orders and Deliveries</li>
-      <li>Track Outstanding Balances</li>
-      <li>Manage Repayments</li>
-    </ul>
-
-    <a href="distributor.html" class="btn partner-btn">
-      ENTER PARTNER PORTAL →
-    </a>
-
-  </div>
-
-</section>
-
-
-<section class="integration">
-
-  <h2>One Ecosystem. Two User Experiences.</h2>
-
-  <p>
-    AfriSnacks maintains central visibility and treasury control,
-    while distributors and retailers independently manage their
-    financing, orders and repayments.
-  </p>
-
-  <div class="flow">
-
-    <div class="flow-box">
-      🏢<br><strong>AfriSnacks Treasury</strong>
+<main class="solutions">
+  <article class="solution">
+    <div class="solution-top"><h2>Cash Management & Collections</h2><p>Private AfriSnacks HQ Treasury Dashboard</p></div>
+    <div class="solution-body"><p>A company-facing command centre for liquidity visibility, collections, PAPSS settlement and supply chain financing activity.</p>
+      <div class="features"><div>Mission control and regional liquidity</div><div>Interactive 7-day and 30-day forecasts</div><div>PAPSS settlement and financing workflow</div></div>
+      <a class="btn" href="treasury.html">Open Treasury Dashboard →</a>
     </div>
-
-    <div class="arrow">↔</div>
-
-    <div class="flow-box">
-      🤝<br><strong>Supply Chain Partners</strong>
+  </article>
+  <article class="solution">
+    <div class="solution-top distributor"><h2>Digital Supply Chain Finance</h2><p>Distributor & Retailer Portal</p></div>
+    <div class="solution-body"><p>A separate user experience where distributors and retailers manage credit, orders, invoices, repayments and account support.</p>
+      <div class="features"><div>Credit facility and available limit</div><div>Orders matched to repayment activity</div><div>Invoices, statements and support pages</div></div>
+      <a class="btn" href="distributor.html">Open Distributor Portal →</a>
     </div>
-
-  </div>
-
-</section>
-
-
-<footer>
-  Access Bank Business Solutions for FMCG
-</footer>
-
-</body>
-</html>
+  </article>
+</main>
+<div class="footer">Prototype demonstration • Access Bank business solutions for AfriSnacks</div>
+</body></html>
