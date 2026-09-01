@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AfriSnacks Supply Chain Partner Portal</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --green:#0A4B2A;
+  --green2:#167A43;
+  --lightgreen:#EAF5ED;
+  --orange:#F58220;
+  --navy:#10243E;
+  --bg:#F5F7F8;
+  --white:#FFFFFF;
+  --text:#1B2635;
+  --muted:#667085;
+  --border:#E4E7EC;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.app{
+  display:flex;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  width:255px;
+  background:linear-gradient(180deg,#073D23,#062D1B);
+  color:white;
+  padding:28px 16px;
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  z-index:20;
+}
+
+.brand{
+  padding:10px 15px 35px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.brand-icon{
+  font-size:30px;
+}
+
+.brand h2{
+  font-size:17px;
+}
+
+.brand p{
+  font-size:11px;
+  color:#b6d0c0;
+  margin-top:4px;
+}
+
+.nav-btn{
+  width:100%;
+  border:none;
+  background:transparent;
+  color:#d2e3d9;
+  padding:14px;
+  text-align:left;
+  border-radius:9px;
+  margin-bottom:5px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.nav-btn:hover{
+  background:rgba(255,255,255,.08);
+}
+
+.nav-btn.active{
+  background:#4D913B;
+  color:white;
+}
+
+.help{
+  position:absolute;
+  bottom:85px;
+  left:18px;
+  right:18px;
+  padding:18px;
+  background:#4D913B;
+  border-radius:10px;
+  font-size:13px;
+}
+
+.logout{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  color:#c9d9cf;
+  font-size:13px;
+  cursor:pointer;
+}
+
+/* MAIN */
+
+.main{
+  margin-left:255px;
+  width:calc(100% - 255px);
+}
+
+.topbar{
+  min-height:75px;
+  background:white;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 35px;
+}
+
+.portal-name{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.user{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:var(--green2);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.content{
+  padding:35px;
+  max-width:1500px;
+}
+
+/* GENERAL */
+
+h1{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+h2{
+  font-size:19px;
+}
+
+h3{
+  font-size:15px;
+}
+
+p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 4px 15px rgba(16,36,62,.03);
+}
+
+.label{
+  font-size:11px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+
+.green{
+  color:var(--green2);
+}
+
+.orange{
+  color:var(--orange);
+}
+
+.btn{
+  border:none;
+  border-radius:7px;
+  padding:12px 18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.primary{
+  background:#4D913B;
+  color:white;
+}
+
+.secondary{
+  background:#eef5ef;
+  color:var(--green);
+}
+
+.mobile-menu{
+  display:none;
+}
+
+/* KPI */
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin:25px 0;
+}
+
+.kpi-value{
+  font-size:24px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+/* GRID */
+
+.two-col{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.orders-grid{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:20px;
+}
+
+/* UTILISATION */
+
+.progress{
+  width:100%;
+  height:11px;
+  background:#edf0f1;
+  border-radius:10px;
+  overflow:hidden;
+  margin:18px 0 10px;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  width:62.5%;
+  background:#4D913B;
+  border-radius:10px;
+}
+
+/* TABLE */
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+.table th,
+.table td{
+  text-align:left;
+  padding:13px 8px;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+
+.table th{
+  color:var(--muted);
+}
+
+.badge{
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:10px;
+}
+
+.delivered{
+  color:var(--green2);
+  background:#eaf5ed;
+}
+
+.transit{
+  color:#355B9B;
+  background:#edf2ff;
+}
+
+.completed{
+  color:#6B4EA0;
+  background:#f1edfb;
+}
+
+/* REPAYMENT */
+
+.repayment{
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
+}
+
+/* HOW */
+
+.how{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.how-step{
+  padding:15px;
+  border-radius:10px;
+  background:#fafbfb;
+}
+
+.number{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid var(--green2);
+  color:var(--green2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+}
+
+/* ACTIONS */
+
+.quick-actions{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.action{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.action:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(0,0,0,.06);
+}
+
+.action-icon{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  width:min(500px,100%);
+  padding:30px;
+  border-radius:16px;
+}
+
+.modal-box h2{
+  margin-bottom:15px;
+}
+
+.modal-box input,
+.modal-box select{
+  width:100%;
+  padding:13px;
+  margin:10px 0;
+  border:1px solid var(--border);
+  border-radius:7px;
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.sidebar{
+  transform:translateX(-100%);
+  transition:.3s;
+}
+
+.sidebar.show{
+  transform:translateX(0);
+}
+
+.main{
+  margin-left:0;
+  width:100%;
+}
+
+.mobile-menu{
+  display:block;
+  border:none;
+  background:none;
+  font-size:24px;
+}
+
+.kpi-grid{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.two-col,
+.orders-grid{
+  grid-template-columns:1fr;
+}
+
+.quick-actions{
+  grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.content{
+  padding:20px;
+}
+
+.topbar{
+  padding:15px 20px;
+}
+
+.portal-name{
+  display:none;
+}
+
+.kpi-grid,
+.quick-actions,
+.how{
+  grid-template-columns:1fr;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+.table{
+  min-width:600px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar" id="sidebar">
+
+<div class="brand">
+
+<div class="brand-icon">♧</div>
+
+<div>
+<h2>FMCG SUPPLY CHAIN FINANCE</h2>
+<p>Distributor & Retailer Portal</p>
+</div>
+
+</div>
+
+
+<button class="nav-btn active">⌂ Dashboard</button>
+<button class="nav-btn">♙ My Profile</button>
+<button class="nav-btn">▣ Credit Facility</button>
+<button class="nav-btn" onclick="openModal('orderModal')">🛒 Place Order</button>
+<button class="nav-btn">▤ Orders & Deliveries</button>
+<button class="nav-btn" onclick="openModal('repaymentModal')">₦ Repayments</button>
+<button class="nav-btn" onclick="openModal('financeModal')">▧ Request Financing</button>
+<button class="nav-btn">▤ Statements</button>
+<button class="nav-btn">? Support</button>
+
+
+<div class="help">
+<strong>Need Help?</strong>
+<p style="color:#e3efe8;margin-top:5px">
+Chat with our support team
+</p>
+</div>
+
+<div class="logout">
+↪ Logout
+</div>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+
+<button class="mobile-menu" onclick="toggleMenu()">☰</button>
+
+<div class="portal-name">
+AfriSnacks Supply Chain Partner Portal
+</div>
+
+<div class="user">
+<div>
+<strong>John Adewale</strong><br>
+<span style="font-size:11px;color:#667085">Adewale Stores Ltd.</span>
+</div>
+
+<div class="avatar">JA</div>
+</div>
+
+</header>
+
+
+<section class="content">
+
+<h1>Welcome back, John!</h1>
+
+<p>Here's what's happening with your business account.</p>
+
+
+<div class="kpi-grid">
+
+<div class="card">
+<div class="label">APPROVED CREDIT LIMIT</div>
+<div class="kpi-value">₦50,000,000</div>
+<p class="green">✓ Active Facility</p>
+</div>
+
+<div class="card">
+<div class="label">AVAILABLE LIMIT</div>
+<div class="kpi-value">₦18,750,000</div>
+<p class="green">37.5% Available</p>
+</div>
+
+<div class="card">
+<div class="label">OUTSTANDING BALANCE</div>
+<div class="kpi-value">₦31,250,000</div>
+<p class="orange">View details →</p>
+</div>
+
+<div class="card">
+<div class="label">TOTAL ORDERS THIS MONTH</div>
+<div class="kpi-value">₦24,560,000</div>
+<p>5 Orders</p>
+</div>
+
+</div>
+
+
+<div class="quick-actions">
+
+<div class="action" onclick="openModal('orderModal')">
+<div class="action-icon">🛒</div>
+<strong>Place Order</strong>
+<p>Submit a new order</p>
+</div>
+
+<div class="action" onclick="openModal('financeModal')">
+<div class="action-icon">💰</div>
+<strong>Request Financing</strong>
+<p>Access your facility</p>
+</div>
+
+<div class="action" onclick="openModal('invoiceModal')">
+<div class="action-icon">📄</div>
+<strong>Upload Invoice</strong>
+<p>Submit invoice details</p>
+</div>
+
+<div class="action" onclick="openModal('repaymentModal')">
+<div class="action-icon">💳</div>
+<strong>Make Repayment</strong>
+<p>Manage your balance</p>
+</div>
+
+</div>
+
+
+<div class="two-col">
+
+<div class="card">
+
+<h3>Credit Utilisation</h3>
+
+<p style="margin-top:10px">
+You have used 62.5% of your approved credit limit.
+</p>
+
+<div class="progress">
+<span></span>
+</div>
+
+<div style="display:flex;justify-content:space-between;font-size:12px">
+<span>₦31,250,000 used</span>
+<span>₦18,750,000 available</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Next Repayment</h3>
+
+<div class="kpi-value green"
+style="font-size:21px;margin-top:20px">
+₦5,240,000
+</div>
+
+<p>Due on May 30, 2026</p>
+
+<button class="btn primary"
+style="width:100%;margin-top:18px"
+onclick="openModal('repaymentModal')">
+Make Repayment
+</button>
+
+</div>
+
+</div>
+
+
+<div class="orders-grid">
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+<h3>Recent Orders</h3>
+<span class="green" style="font-size:12px">View all →</span>
+</div>
+
+<div class="table-wrap">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>Order ID</th>
+<th>Date</th>
+<th>Status</th>
+<th>Amount</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>ORD-2026-0056</td>
+<td>May 24, 2026</td>
+<td><span class="badge delivered">Delivered</span></td>
+<td>₦4,250,000</td>
+</tr>
+
+<tr>
+<td>ORD-2026-0055</td>
+<td>May 21, 2026</td>
+<td><span class="badge transit">In Transit</span></td>
+<td>₦3,750,000</td>
+</tr>
+
+<tr>
+<td>ORD-2026-0054</td>
+<td>May 18, 2026</td>
+<td><span class="badge delivered">Delivered</span></td>
+<td>₦6,000,000</td>
+</tr>
+
+<tr>
+<td>ORD-2026-0053</td>
+<td>May 15, 2026</td>
+<td><span class="badge delivered">Delivered</span></td>
+<td>₦6,330,000</td>
+</tr>
+
+<tr>
+<td>ORD-2026-0052</td>
+<td>May 10, 2026</td>
+<td><span class="badge completed">Completed</span></td>
+<td>₦4,610,000</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+<h3>Repayment Schedule</h3>
+<span class="green" style="font-size:12px">View all →</span>
+</div>
+
+<div class="repayment">
+<span>May 30, 2026</span>
+<strong>₦5,240,000</strong>
+</div>
+
+<div class="repayment">
+<span>Jun 13, 2026</span>
+<strong>₦5,240,000</strong>
+</div>
+
+<div class="repayment">
+<span>Jun 27, 2026</span>
+<strong>₦5,240,000</strong>
+</div>
+
+<div class="repayment">
+<span>Jul 11, 2026</span>
+<strong>₦5,240,000</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+<h3>How It Works</h3>
+
+<div class="how" style="margin-top:20px">
+
+<div class="how-step">
+<div class="number">1</div>
+<strong>Place an Order</strong>
+<p>Select products for your business.</p>
+</div>
+
+<div class="how-step">
+<div class="number">2</div>
+<strong>Access Financing</strong>
+<p>Use your approved credit facility.</p>
+</div>
+
+<div class="how-step">
+<div class="number">3</div>
+<strong>Receive & Sell</strong>
+<p>Receive products and generate sales.</p>
+</div>
+
+<div class="how-step">
+<div class="number">4</div>
+<strong>Repay Easily</strong>
+<p>Repay according to your schedule.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<!-- ORDER MODAL -->
+
+<div class="modal" id="orderModal">
+
+<div class="modal-box">
+
+<h2>Place New Order</h2>
+
+<p>Select products and submit an order request.</p>
+
+<select>
+<option>Select Product Category</option>
+<option>Snacks</option>
+<option>Beverages</option>
+<option>Confectionery</option>
+</select>
+
+<input type="number" placeholder="Order Amount">
+
+<div class="modal-actions">
+
+<button class="btn secondary"
+onclick="closeModal('orderModal')">
+Cancel
+</button>
+
+<button class="btn primary"
+onclick="submitOrder()">
+Submit Order
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FINANCING MODAL -->
+
+<div class="modal" id="financeModal">
+
+<div class="modal-box">
+
+<h2>Request Financing</h2>
+
+<p>Your available facility is ₦18,750,000.</p>
+
+<input type="number" placeholder="Enter Financing Amount">
+
+<div class="modal-actions">
+
+<button class="btn secondary"
+onclick="closeModal('financeModal')">
+Cancel
+</button>
+
+<button class="btn primary"
+onclick="submitFinance()">
+Submit Request
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- INVOICE MODAL -->
+
+<div class="modal" id="invoiceModal">
+
+<div class="modal-box">
+
+<h2>Upload Invoice</h2>
+
+<input type="text" placeholder="Invoice Number">
+
+<input type="number" placeholder="Invoice Amount">
+
+<input type="file">
+
+<div class="modal-actions">
+
+<button class="btn secondary"
+onclick="closeModal('invoiceModal')">
+Cancel
+</button>
+
+<button class="btn primary"
+onclick="submitInvoice()">
+Upload Invoice
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REPAYMENT MODAL -->
+
+<div class="modal" id="repaymentModal">
+
+<div class="modal-box">
+
+<h2>Make Repayment</h2>
+
+<p>Next repayment: ₦5,240,000</p>
+
+<input type="number" placeholder="Enter Repayment Amount">
+
+<div class="modal-actions">
+
+<button class="btn secondary"
+onclick="closeModal('repaymentModal')">
+Cancel
+</button>
+
+<button class="btn primary"
+onclick="submitRepayment()">
+Confirm Payment
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function toggleMenu(){
+document.getElementById("sidebar").classList.toggle("show");
+}
+
+function openModal(id){
+document.getElementById(id).classList.add("show");
+}
+
+function closeModal(id){
+document.getElementById(id).classList.remove("show");
+}
+
+function submitOrder(){
+closeModal("orderModal");
+alert("✓ Order request successfully submitted!");
+}
+
+function submitFinance(){
+closeModal("financeModal");
+alert("✓ Financing request submitted for review!");
+}
+
+function submitInvoice(){
+closeModal("invoiceModal");
+alert("✓ Invoice successfully uploaded!");
+}
+
+function submitRepayment(){
+closeModal("repaymentModal");
+alert("✓ Repayment request successfully submitted!");
+}
+
+</script>
+
+</body>
+</html>
